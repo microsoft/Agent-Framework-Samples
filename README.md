@@ -38,11 +38,19 @@ This repository provides step-by-step tutorials and real-world examples covering
 
 ```bash
 
-pip uninstall agent-framework -y
-pip uninstall agent-framework-core -y
-pip uninstall agent-framework-azure-ai -y
+# Core only
+# includes Azure OpenAI and OpenAI support by default
+# also includes workflows and orchestrations
+pip install agent-framework-core
 
-pip install -r Installation\requirements.txt 
+# Core + Azure AI integration
+pip install agent-framework-azure-ai
+
+# Core + Microsoft Copilot Studio integration
+pip install agent-framework-copilotstudio
+
+# Core + both Microsoft Copilot Studio and Azure AI integration
+pip install agent-framework-microsoft agent-framework-azure-ai
 
 
 ```
