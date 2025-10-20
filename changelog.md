@@ -1,5 +1,25 @@
 # Change Log - Agent Framework Samples
 
+## 2025-10-20
+
+### Repository Documentation Updates
+
+**Summary:** Updated main README.md to accurately reflect project structure and added missing EvaluationAndTracing section
+
+#### Documentation Improvements
+
+| Component | Changes Made |
+|-----------|--------------|
+| `README.md` | • Updated Repository Structure table to include missing `08.EvaluationAndTracing` directory<br>• Added comprehensive documentation for evaluation and debugging tools<br>• Updated Tutorial Progression to include advanced evaluation techniques<br>• Enhanced Key Features section with evaluation and tracing capabilities<br>• Improved project navigation with accurate directory references |
+
+#### Repository Structure Alignment
+
+| Section | Updates |
+|---------|---------|
+| Repository Structure Table | • Added `08.EvaluationAndTracing` with Python-only samples<br>• Documented DevUI visualization tools<br>• Listed observability and tracing examples<br>• Maintained consistency with actual project structure |
+| Tutorial Progression | • Added evaluation and tracing as advanced level topic<br>• Organized learning path from beginner to advanced concepts<br>• Enhanced developer journey documentation |
+| Key Features | • Documented DevUI for visual debugging<br>• Added observability tools for agent tracing<br>• Highlighted evaluation capabilities for agent development |
+
 ## 2025-10-08
 
 ### Added Evaluation and Tracing Components

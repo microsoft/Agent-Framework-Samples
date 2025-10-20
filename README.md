@@ -27,6 +27,7 @@ This repository provides step-by-step tutorials and real-world examples covering
 | **[05.Providers](./05.Providers/README.md)** | MCP (Model Context Protocol) and Agent-to-Agent communication | [MCP with Microsoft Learn](./05.Providers/code_samples/dotNET/01-dotnet-agent-framework-aifoundry-mcp/AgentMCP.Console/)| [MCP with Microsoft Learn](./05.Providers/code_samples/python/01-python-agent-framework-aifoundry-mcp.ipynb) |
 | **[06.RAGs](./06.RAGs/README.md)** | Knowledge-enhanced agents with file search capabilities | [File Search RAG](./06.RAGs/code_samples/dotNET/dotnet-agent-framework-aifoundry-file-search.ipynb) | [File Search RAG](./06.RAGs/code_samples/python/python-agent-framework-aifoundry-file-search.ipynb) |
 | **[07.Workflow](./07.Workflow/README.md)** | Complex agent workflows and orchestration patterns | [Basic Workflow](./07.Workflow/code_samples/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb)<br/>[Sequential](./07.Workflow/code_samples/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb)<br/>[Concurrent](./07.Workflow/code_samples/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb)<br/>[Conditional](./07.Workflow/code_samples/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb) | [Basic Workflow](./07.Workflow/code_samples/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb)<br/>[Sequential](./07.Workflow/code_samples/python/02.python-agent-framework-workflow-ghmodel-sequential.ipynb)<br/>[Concurrent](./07.Workflow/code_samples/python/03.python-agent-framework-workflow-ghmodel-concurrent.ipynb)<br/>[Conditional](./07.Workflow/code_samples/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb) |
+| **[08.EvaluationAndTracing](./08.EvaluationAndTracing/README.md)** | Agent evaluation, debugging, and observability tools | *Python Only* | [Basic Agent DevUI](./08.EvaluationAndTracing/python/basic_agent_workflow_devui/)<br/>[Multi-Agent DevUI](./08.EvaluationAndTracing/python/multi_workflow_ghmodel_devui/)<br/>[Foundry Agent DevUI](./08.EvaluationAndTracing/python/multi_workflow_aifoundry_devui/)<br/>[Foundry Local DevUI](./08.EvaluationAndTracing/python/multi_workflow_foundrylocal_devui/)<br/>[Aspire Tracing](./08.EvaluationAndTracing/python/tracer_aspire/) |
 
 ## 🛠 Prerequisites
 
@@ -125,6 +126,7 @@ FOUNDRY_MODEL_DEPLOYMENT_NAME=your_model_name
 ### Advanced Level
 6. **05.Providers** - Master MCP (Model Context Protocol) and Agent-to-Agent communication
 7. **07.Workflow** - Create complex agent workflows and orchestration patterns
+8. **08.EvaluationAndTracing** - Learn evaluation, debugging, and observability tools for agents
 
 ## 🔧 Key Features Demonstrated
 
@@ -135,6 +137,7 @@ FOUNDRY_MODEL_DEPLOYMENT_NAME=your_model_name
 - **MCP Integration**: Model Context Protocol for enhanced capabilities
 - **Streaming Responses**: Real-time agent interactions
 - **Persistent Agents**: Stateful agent conversations
+- **Evaluation & Debugging**: DevUI for visual debugging and observability tools for tracing
 
 ## 🤝 Contributing
 
