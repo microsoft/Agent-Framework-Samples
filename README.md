@@ -28,7 +28,7 @@ This repository provides step-by-step tutorials and real-world examples covering
 | **[06.RAGs](./06.RAGs/README.md)** | Knowledge-enhanced agents with file search capabilities | [File Search RAG](./06.RAGs/code_samples/dotNET/dotnet-agent-framework-aifoundry-file-search.ipynb) | [File Search RAG](./06.RAGs/code_samples/python/python-agent-framework-aifoundry-file-search.ipynb) |
 | **[07.Workflow](./07.Workflow/README.md)** | Complex agent workflows and orchestration patterns | [Basic Workflow](./07.Workflow/code_samples/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic.ipynb)<br/>[Sequential](./07.Workflow/code_samples/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential.ipynb)<br/>[Concurrent](./07.Workflow/code_samples/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent.ipynb)<br/>[Conditional](./07.Workflow/code_samples/dotNET/04.dotnet-agent-framework-workflow-aifoundry-condition.ipynb) | [Basic Workflow](./07.Workflow/code_samples/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb)<br/>[Sequential](./07.Workflow/code_samples/python/02.python-agent-framework-workflow-ghmodel-sequential.ipynb)<br/>[Concurrent](./07.Workflow/code_samples/python/03.python-agent-framework-workflow-ghmodel-concurrent.ipynb)<br/>[Conditional](./07.Workflow/code_samples/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb) |
 | **[08.EvaluationAndTracing](./08.EvaluationAndTracing/README.md)** | Agent evaluation, debugging, and observability tools | *Python Only* | [Basic Agent DevUI](./08.EvaluationAndTracing/python/basic_agent_workflow_devui/)<br/>[Multi-Agent DevUI](./08.EvaluationAndTracing/python/multi_workflow_ghmodel_devui/)<br/>[Foundry Agent DevUI](./08.EvaluationAndTracing/python/multi_workflow_aifoundry_devui/)<br/>[Foundry Local DevUI](./08.EvaluationAndTracing/python/multi_workflow_foundrylocal_devui/)<br/>[Aspire Tracing](./08.EvaluationAndTracing/python/tracer_aspire/) |
-| **09.Cases** | Real-world case studies combining Foundry workflows with production-ready multi-agent applications | [Microsoft Foundry with AITK & MAF](./09.Cases/MicrosoftFoundryWithAITKAndMAF/README.md)<br/>[GHModel Multi-Agent (.NET)](./09.Cases/GHModel.AI/GHModel.dotNET.AI/) | [Microsoft Foundry with AITK & MAF](./09.Cases/MicrosoftFoundryWithAITKAndMAF/README.md)<br/>[GHModel Multi-Agent (Python)](./09.Cases/GHModel.AI/GHModel.Python.AI/) |
+| **[09.Cases](./09.Cases/README)** | Real-world case studies combining Foundry workflows with production-ready multi-agent applications | [Microsoft Foundry with AITK & MAF](./09.Cases/MicrosoftFoundryWithAITKAndMAF/README.md)<br/>[GHModel Multi-Agent (.NET)](./09.Cases/GHModel.AI/GHModel.dotNET.AI/) | [Microsoft Foundry with AITK & MAF](./09.Cases/MicrosoftFoundryWithAITKAndMAF/README.md)<br/>[GHModel Multi-Agent (Python)](./09.Cases/GHModel.AI/GHModel.Python.AI/)<br/>[Agentic Marketing Content Generation](./09.Cases/AgenticMarketingContentGen/README.md) |
 
 ## 🛠 Prerequisites
 
@@ -82,7 +82,7 @@ $env:OPENSSL_STATIC="1"
 - **Windows x64**: Standard Windows installation
 
 ### Required Services
-- Azure OpenAI Service and Azure AI Foundry
+- Azure OpenAI Service and Microsoft Foundry
 - GitHub Models (for some examples)
 - Azure CLI (authenticated)
 - Azure Developer CLI (authenticated)
@@ -104,7 +104,7 @@ GITHUB_TOKEN=your_github_token
 GITHUB_ENDPOINT=https://models.inference.ai.azure.com
 GITHUB_MODEL_ID=gpt-4o-mini
 
-# Azure AI Foundry Configuration
+# Microsoft Foundry Configuration
 FOUNDRY_PROJECT_ENDPOINT=your_foundry_endpoint
 FOUNDRY_MODEL_DEPLOYMENT_NAME=your_model_name
 ```
@@ -131,7 +131,7 @@ FOUNDRY_MODEL_DEPLOYMENT_NAME=your_model_name
 
 ## 🔧 Key Features Demonstrated
 
-- **Multiple Provider Support**: Azure OpenAI, GitHub Models, Azure AI Foundry
+- **Multiple Provider Support**: Azure OpenAI, GitHub Models, Microsoft Foundry
 - **Tool Integration**: Vision analysis, code interpretation, custom functions
 - **RAG Capabilities**: File search and knowledge base integration
 - **Multi-Agent Orchestration**: Sequential and collaborative agent patterns
@@ -152,7 +152,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 - [Microsoft Agent Framework Documentation](https://github.com/microsoft/agent-framework)
 - [Azure AI Services](https://azure.microsoft.com/en-us/products/ai-services)
-- [Azure AI Foundry](https://azure.microsoft.com/en-us/products/ai-foundry)
+- [Microsoft Foundry](https://azure.microsoft.com/en-us/products/ai-foundry)
 - [GitHub Models](https://github.com/marketplace/models)
 
 ## 🆘 Support

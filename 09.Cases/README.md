@@ -1,0 +1,14 @@
+> English overview of the case studies listed below.
+
+# Case Studies in 09.Cases
+
+Each subfolder in this directory showcases a different production-ready scenario that applies Microsoft Agent Framework and Microsoft Foundry tooling to real-world workflows. The projects mix multi-agent orchestration, web/UI integrations, and observability so you can see how agents behave across marketing, travel guidance, and enterprise process automation contexts.
+
+## AgenticMarketingContentGen ([AgenticMarketingContentGen/README.md](09.Cases/AgenticMarketingContentGen/README.md))
+This workspace automates marketing campaigns with a modular, four-phased agent workflow (strategy, copywriting, images, video). You describe a product or topic, and the system runs a strategy agent, optional deep research, and content agents that produce publish-ready text plus image/video assets, all packaged through the `CampaignPackage` model and persisted under `artifacts/campaigns`. CLI flags toggle deep research, image generation, video generation, and verbose debugging to adapt to different stages of a campaign run.
+
+## GHModel.AI ([GHModel.AI/README.md](09.Cases/GHModel.AI/README.md))
+GHModel.AI bundles Python and .NET samples that demonstrate AG-UI, DevUI, and OpenTelemetry integrations for a travel assistant scenario. The dual-agent workflow (FrontDesk + Concierge) runs inside the Microsoft Agent Framework while AG-UI provides streaming SSE, DevUI enables visual local debugging, and OpenTelemetry (with the Aspire Dashboard or Application Insights) captures traces, metrics, and logs. Each sample shows how to register agents, wire up DevUI/AG-UI endpoints, and monitor production telemetry, giving a hands-on path from local testing to observability.
+
+## MicrosoftFoundryWithAITKAndMAF ([MicrosoftFoundryWithAITKAndMAF/README.md](09.Cases/MicrosoftFoundryWithAITKAndMAF/README.md))
+This narrative documents moving from concept to code through Microsoft Foundry and the Agent Framework. It uses a recruitment scenario with Recruiter and Applicant agents to illustrate a three-phase lifecycle: low-code workflow design in Foundry, code synchronization via the VS Code extension, and deployment on the Microsoft Agent Framework runtime using YAML-based “configuration as code.” The subdirectories contain the workflow YAML definitions and guidance for running the generated agents and workflows locally.
