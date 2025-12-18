@@ -1,10 +1,10 @@
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 from workflow import workflow  # 🏗️ The content workflow
 
 
 
 # Load environment variables first, before importing agents
-load_dotenv()
+# load_dotenv()
 
 def main():
     """Launch the content workflow in DevUI."""

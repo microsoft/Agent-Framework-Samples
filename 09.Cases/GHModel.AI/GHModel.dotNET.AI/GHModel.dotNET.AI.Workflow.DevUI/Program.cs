@@ -110,6 +110,9 @@ internal static class Program
 
         var app = builder.Build();
 
+
+        app.UseHttpsRedirection();
+
         app.MapOpenAIResponses();
         app.MapOpenAIConversations();
 
@@ -121,7 +124,6 @@ internal static class Program
         Console.WriteLine("DevUI is available at: https://localhost:50516/devui");
         Console.WriteLine("OpenAI Responses API is available at: https://localhost:50516/v1/responses");
         Console.WriteLine("Press Ctrl+C to stop the server.");
-
         app.Run();
     }
 }
