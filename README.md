@@ -32,34 +32,38 @@ This repository provides step-by-step tutorials and real-world examples covering
 
 ## 🛠 Prerequisites
 
-***Note: This is internal priview intsallation guideline***
+***Note: This is installation guideline***
+
+> ⚠️ **Important Notice**: Microsoft Agent Framework is currently in the **development/preview stage**. Since the framework APIs and features may change frequently, **we strongly recommend building from source** rather than using NuGet packages to ensure you have the latest updates and bug fixes.
 
 ### Python Environment
 - Python 3.10 or higher
 - Install dependencies: 
 
 ```bash
+pip install -r ./Installation/requirement.txt -U
+```
 
-# Core only
-# includes Azure OpenAI and OpenAI support by default
-# also includes workflows and orchestrations
-pip install agent-framework-core
+**Build from Source (Recommended):**
 
-# Core + Azure AI integration
-pip install agent-framework-azure-ai
-
-# Core + Microsoft Copilot Studio integration
-pip install agent-framework-copilotstudio
-
-# Core + both Microsoft Copilot Studio and Azure AI integration
-pip install agent-framework-microsoft agent-framework-azure-ai
-
-
+```bash
+git clone https://github.com/microsoft/agent-framework.git
+cd agent-framework/python
+pip install -e .
 ```
 
 ### .NET Environment
 - .NET 9.0 or higher
 - Visual Studio 2022 or VS Code with C# extension
+
+**Build from Source (Recommended):**
+
+```bash
+git clone https://github.com/microsoft/agent-framework.git
+cd agent-framework/dotnet && dotnet build agent-framework-dotnet.slnx
+```
+
+After building, reference the local project in your notebooks or applications instead of NuGet packages. This ensures compatibility with the latest framework changes.
 
 
 ## 💻 Platform-Specific Setup

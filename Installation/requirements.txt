@@ -1,2 +1,6 @@
 agent-framework-core @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/core
 agent-framework-azure-ai @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/azure-ai
+agent-framework-devui @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/devui 
+agent-framework-ag-ui @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/ag-ui
+agent-framework-anthropic @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/anthropic
+agent-framework-ollama @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/ollama
