@@ -22,7 +22,9 @@ var azure_foundry_endpoint = Environment.GetEnvironmentVariable("AZURE_AI_PROJEC
 var azure_foundry_model_id = "gpt-4.1-mini";
 
 const string AgentName = "Bing-Agent-Framework";
-const string AgentInstructions = "You are an AI assistant that helps people search information with Bing Search ";
+const string AgentInstructions = @"You are a helpful assistant that can search the web for current information.
+            Use the Bing search tool to find up-to-date information and provide accurate, well-sourced answers.
+            Always cite your sources when possible.";
 
 AIProjectClient aiProjectClient = new(
     new Uri(azure_foundry_endpoint),
@@ -56,7 +58,7 @@ AIAgent bingAgent = await aiProjectClient.CreateAIAgentAsync(
         })
 );
 
-AgentResponse response = await bingAgent.RunAsync("Can you introduce Microsoft Agent Framework?");
+AgentResponse response = await bingAgent.RunAsync("What is today's date and weather in Guangzhou?");
 
 Console.WriteLine("Response:");
 Console.WriteLine(response);
