@@ -19,10 +19,10 @@ This repository provides step-by-step tutorials and real-world examples covering
 
 | Directory | Description | .NET Code Samples | Python Code Samples |
 |-----------|-------------|-------------------|---------------------|
-| **[00.ForBeginners](./00.ForBeginners/README.md)** | **Beginner-friendly Microsoft Agent Framework examples extending [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)** | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/dotnet-agent-framework-travelagent.ipynb)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/dotnet-agent-framework-basicagent.ipynb)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/dotnet-agent-framework-ghmodel-basicagent.ipynb)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool.ipynb)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-aifoundry-file-search.ipynb)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framrwork-ghmodel-planningdesign.ipynb)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/dotnet-agent-framework-ghmodel-workflow-multi-agents.ipynb) | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/python-agent-framework-travelagent.ipynb)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/python-agent-framework-basicagent.ipynb)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/python-agent-framework-ghmodel-basicagent.ipynb)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/python-agent-framework-ghmodel-tools.ipynb)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/python-agent-framework-aifoundry-file-search.ipynb)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/python-agent-framrwork-ghmodel-planningdesign.ipynb)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/python-agent-framework-ghmodel-workflow-multi-agents.ipynb) |
+| **[00.ForBeginners](./00.ForBeginners/README.md)** | **Beginner-friendly Microsoft Agent Framework examples extending [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)** | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/dotnet-agent-framework-travelagent/)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/dotnet-agent-framework-basicagent/)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/dotnet-agent-framework-basicagent/)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool/)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framrwork-ghmodel-planningdesign/)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/dotnet-agent-framework-ghmodel-workflow-multi-agents/) | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/python-agent-framework-travelagent.ipynb)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/python-agent-framework-basicagent.ipynb)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/python-agent-framework-ghmodel-basicagent.ipynb)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/python-agent-framework-ghmodel-tools.ipynb)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/python-agent-framework-msfoundry-file-search.ipynb)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/python-agent-framrwork-ghmodel-planningdesign.ipynb)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/python-agent-framework-ghmodel-workflow-multi-agents.ipynb) |
 | **[01.AgentFoundation](./01.AgentFoundation/README.md)** | Core concepts and architecture of Microsoft Agent Framework | *Documentation Only* | *Documentation Only* |
 | **[02.CreateYourFirstAgent](./02.CreateYourFirstAgent/README.md)** | Build your first travel planning agent from scratch | [Travel Agent with GitHub Models](./02.CreateYourFirstAgent/code_samples/dotNET/dotnet-travelagent-ghmodel.ipynb) | [Travel Agent with GitHub Models](./02.CreateYourFirstAgent/code_samples/python/python-travelagent-ghmodel.ipynb) |
-| **[03.ExploreAgentFramework](./03.ExploerAgentFramework/README.md)** | Deep dive into different providers and configurations | [Azure OpenAI](./03.ExploerAgentFramework/code_samples/dotNET/01-dotnet-agent-framework-aoai.ipynb)<br/>[GitHub Models](./03.ExploerAgentFramework/code_samples/dotNET/02-dotnet-agent-framrwork-ghmodel.ipynb)<br/>[AI Foundry](./03.ExploerAgentFramework/code_samples/dotNET/03-dotnet-agent-framework-aifoundry.ipynb)<br/>[Foundry Local](./03.ExploerAgentFramework/code_samples/dotNET/04-dotnet-agent-framework-foundrylocal.ipynb) | [Azure OpenAI](./03.ExploerAgentFramework/code_samples/python/01-python-agent-framework-aoai.ipynb)<br/>[GitHub Models](./03.ExploerAgentFramework/code_samples/python/02-python-agent-framrwork-ghmodel.ipynb)<br/>[AI Foundry](./03.ExploerAgentFramework/code_samples/python/03-python-agent-framework-aifoundry.ipynb)<br/>[Foundry Local](./03.ExploerAgentFramework/code_samples/python/04-python-agent-framrwork-foundrylocal.ipynb) |
+| **[03.ExploreAgentFramework](./03.ExploerAgentFramework/README.md)** | Deep dive into different providers and configurations | [Azure OpenAI](./03.ExploerAgentFramework/code_samples/dotNET/01-dotnet-agent-framework-aoai/)<br/>[GitHub Models](./03.ExploerAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/)<br/>[MS Foundry](./03.ExploerAgentFramework/code_samples/dotNET/03-dotnet-agent-framework-msfoundry/)<br/>[Foundry Local](./03.ExploerAgentFramework/code_samples/dotNET/04-dotnet-agent-framework-foundrylocal/) | [Azure OpenAI](./03.ExploerAgentFramework/code_samples/python/01-python-agent-framework-aoai.ipynb)<br/>[GitHub Models](./03.ExploerAgentFramework/code_samples/python/02-python-agent-framrwork-ghmodel.ipynb)<br/>[MS Foundry](./03.ExploerAgentFramework/code_samples/python/03-python-agent-framework-msfoundry.ipynb)<br/>[Foundry Local](./03.ExploerAgentFramework/code_samples/python/04-python-agent-framrwork-foundrylocal.ipynb) |
 | **[04.Tools](./04.Tools/README.md)** | Vision, code interpretation, and custom tool integration | [Vision](./04.Tools/code_samples/dotNET/foundry/01-dotnet-agent-framework-aifoundry-vision.ipynb)<br/>[Code Interpreter](./04.Tools/code_samples/dotNET/foundry/02-dotnet-agent-framework-aifoundry-code-interpreter.ipynb)<br/>[Bing Grounding](./04.Tools/code_samples/dotNET/foundry/03-dotnet-agent-framework-aifoundry-binggrounding.ipynb)<br/>[File Search](./04.Tools/code_samples/dotNET/foundry/04-dotnet-agent-framework-aifoundry-file-search.ipynb) | [Vision](./04.Tools/code_samples/python/foundry/01.python-agent-framework-aifoundry-vision.ipynb)<br/>[Code Interpreter](./04.Tools/code_samples/python/foundry/02.python-agent-framework-aifoundry-code-interpreter.ipynb)<br/>[Bing Grounding](./04.Tools/code_samples/python/foundry/03.python-agent-framework-aifoundry-binggrounding.ipynb)<br/>[File Search](./04.Tools/code_samples/python/foundry/04.python-agent-framework-aifoundry-file-search.ipynb) |
 | **[05.Providers](./05.Providers/README.md)** | MCP (Model Context Protocol) and Agent-to-Agent communication | [MCP with Microsoft Learn](./05.Providers/code_samples/dotNET/01-dotnet-agent-framework-aifoundry-mcp/AgentMCP.Console/)| [MCP with Microsoft Learn](./05.Providers/code_samples/python/01-python-agent-framework-aifoundry-mcp.ipynb) |
 | **[06.RAGs](./06.RAGs/README.md)** | Knowledge-enhanced agents with file search capabilities | [File Search RAG](./06.RAGs/code_samples/dotNET/dotnet-agent-framework-aifoundry-file-search.ipynb) | [File Search RAG](./06.RAGs/code_samples/python/python-agent-framework-aifoundry-file-search.ipynb) |
@@ -98,19 +98,25 @@ $env:OPENSSL_STATIC="1"
 Create a `.env` file in the root directory with your configurations:
 
 ```env
-# Azure OpenAI Configuration
-AZURE_OPENAI_ENDPOINT=your_aoai_endpoint
-AZURE_OPENAI_API_KEY=your_aoai_key
-AZURE_OPENAI_DEPLOYMENT_NAME=your_model_deployment
+GITHUB_TOKEN="Your GitHub Models Token"
+GITHUB_ENDPOINT="Your GitHub Models Endpoint"
+GITHUB_MODEL_ID="Your GitHub Model ID"
 
-# GitHub Models Configuration
-GITHUB_TOKEN=your_github_token
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
-GITHUB_MODEL_ID=gpt-4o-mini
+AZURE_OPENAI_ENDPOINT="Your Azure OpenAI Endpoint"
+AZURE_OPENAI_CHAT_DEPLOYMENT_NAME ="Your Azure OpenAI Model Deployment Name"
 
-# Microsoft Foundry Configuration
-FOUNDRY_PROJECT_ENDPOINT=your_foundry_endpoint
-FOUNDRY_MODEL_DEPLOYMENT_NAME=your_model_name
+
+FOUNDRYLOCAL_ENDPOINT="Your Foundry Local Endpoint http://localhost:5272/v1"
+FOUNDRYLOCAL_MODEL_DEPLOYMENT_NAME="Your Foundry Local Model Deployment Name"
+
+
+AZURE_AI_PROJECT_ENDPOINT ="Your Azure AI Foundry Project Endpoint"
+AZURE_AI_MODEL_DEPLOYMENT_NAME ="Your Azure AI Foundry Project Deployment Name"
+
+BING_CONNECTION_ID="Your Bing Connection ID"
+BING_CONNECTION_NAME="Your Bing Connection Name"
+
+OTEL_EXPORTER_OTLP_ENDPOINT="Your OpenTelemetry Collector Endpoint e.g. http://localhost:4317"
 ```
 
 
