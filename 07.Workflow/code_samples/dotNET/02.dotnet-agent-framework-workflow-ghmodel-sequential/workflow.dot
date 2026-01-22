@@ -1,0 +1,11 @@
+digraph Workflow {
+  rankdir=TD;
+  node [shape=box, style=filled, fillcolor=lightblue];
+  edge [color=black, arrowhead=vee];
+
+  "Sales_Agent_a5cc1ad354f54a73a9af30b047e2a8a4" [fillcolor=lightgreen, label="Sales_Agent_a5cc1ad354f54a73a9af30b047e2a8a4\n(Start)"];
+  "Price_Agent_ee4b2201803748d1a88cb72156b44d17" [label="Price_Agent_ee4b2201803748d1a88cb72156b44d17"];
+  "Quote_Agent_e9c24bebb4ab47588986c9c86a53c286" [label="Quote_Agent_e9c24bebb4ab47588986c9c86a53c286"];
+  "Sales_Agent_a5cc1ad354f54a73a9af30b047e2a8a4" -> "Price_Agent_ee4b2201803748d1a88cb72156b44d17";
+  "Price_Agent_ee4b2201803748d1a88cb72156b44d17" -> "Quote_Agent_e9c24bebb4ab47588986c9c86a53c286";
+}

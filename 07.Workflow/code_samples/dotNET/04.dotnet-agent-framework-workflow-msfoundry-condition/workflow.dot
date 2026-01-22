@@ -1,0 +1,13 @@
+digraph Workflow {
+  rankdir=TD;
+  node [shape=box, style=filled, fillcolor=lightblue];
+  edge [color=black, arrowhead=vee];
+
+  "DraftExecutor" [fillcolor=lightgreen, label="DraftExecutor\n(Start)"];
+  "ContentReviewExecutor" [label="ContentReviewExecutor"];
+  "PublishExecutor" [label="PublishExecutor"];
+  "SendReviewExecutor" [label="SendReviewExecutor"];
+  "DraftExecutor" -> "ContentReviewExecutor";
+  "ContentReviewExecutor" -> "PublishExecutor" [style=dashed, label="conditional"];
+  "ContentReviewExecutor" -> "SendReviewExecutor" [style=dashed, label="conditional"];
+}
