@@ -28,7 +28,7 @@ def _build_client() -> OpenAIChatClient:
 
 try:
 	_client = _build_client()
-	researcher_agent = _client.create_agent(
+	researcher_agent = _client.as_agent(
 		instructions=RESEARCHER_AGENT_INSTRUCTIONS,
 		name=RESEARCHER_AGENT_NAME,
 	)

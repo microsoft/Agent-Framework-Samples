@@ -24,7 +24,7 @@ FRONTDESK_INSTRUCTIONS = """
 
 
 
-front_desk_agent = chat_client.create_agent(
+front_desk_agent = chat_client.as_agent(
         instructions=(
             FRONTDESK_INSTRUCTIONS
         ),

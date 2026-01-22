@@ -1,35 +1,21 @@
-from dotenv import load_dotenv
-import os
-from workflow import workflow  # 🏗️ The content workflow
-
-
-from agent_framework.observability import get_tracer
-from opentelemetry.trace import SpanKind
-from opentelemetry.trace.span import format_trace_id
-
-from opentelemetry.exporter.otlp.proto.grpc.trace_exporter import OTLPSpanExporter
-from agent_framework.observability import setup_observability
-
-# Load environment variables first, before importing agents
-load_dotenv()
+from travelplan_workflow import workflow  # 🏗️ The travel plan workflow
 
 def main():
-    """Launch the content workflow in DevUI."""
+    """Launch the travel workflow in DevUI."""
     import logging
+    """Launch the basic orkflow in DevUI."""
     from agent_framework.devui import serve
 
     # Setup logging
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     logger = logging.getLogger(__name__)
 
-    logger.info("Starting Content Workflow")
+    logger.info("Starting Basic Workflow")
     logger.info("Available at: http://localhost:8090")
-    logger.info("Entity ID: workflow_content")
+    logger.info("Entity ID: workflow_basic")
 
     # Launch server with the workflow
-    serve(entities=[workflow], port=8090, auto_open=True, tracing_enabled=True)
-
-    
+    serve(entities=[workflow], port=8090, auto_open=True)
 
 
 if __name__ == "__main__":

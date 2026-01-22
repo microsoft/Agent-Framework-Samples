@@ -30,7 +30,7 @@ def _build_client() -> OpenAIChatClient:
 
 try:
 	_client = _build_client()
-	plan_agent = _client.create_agent(
+	plan_agent = _client.as_agent(
 		instructions=PLAN_AGENT_INSTRUCTIONS,
 		name=PLAN_AGENT_NAME,
 	)

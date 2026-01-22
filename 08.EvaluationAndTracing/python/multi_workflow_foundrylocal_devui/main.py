@@ -25,7 +25,7 @@ def main() -> None:
 	logger.info("Entity ID: workflow_foundrylocal_plan_research")
 
 	# Serve the composed workflow
-	serve(entities=[workflow], port=8091, auto_open=True, tracing_enabled=True)
+	serve(entities=[workflow], port=8091, auto_open=True)
 
 
 if __name__ == "__main__":  # pragma: no cover

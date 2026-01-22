@@ -22,7 +22,7 @@ REVIEWER_INSTRUCTIONS = """
 
 
 
-reviewer_agent = chat_client.create_agent(
+reviewer_agent = chat_client.as_agent(
         instructions=(
             REVIEWER_INSTRUCTIONS
         ),
