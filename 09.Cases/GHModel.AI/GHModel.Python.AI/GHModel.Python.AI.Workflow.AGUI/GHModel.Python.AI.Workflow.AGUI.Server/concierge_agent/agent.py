@@ -1,9 +1,14 @@
 import os 
+from pathlib import Path
 
 from agent_framework.openai import OpenAIChatClient  
 from dotenv import load_dotenv  # 📁 Secure configuration loading
 
-load_dotenv()  # 📁 Load .env file for secure config
+# Load .env from workflow directory or root
+env_path = Path(__file__).parent.parent / "workflow" / ".env"
+if not env_path.exists():
+    env_path = Path(__file__).parent.parent.parent.parent.parent.parent / ".env"
+load_dotenv(env_path)  # 📁 Load .env file for secure config
 
 
 chat_client = OpenAIChatClient(
@@ -21,7 +26,7 @@ CONCIERGE_AGENT_INSTRUCTIONS = """
             If not, provide insight on how to refine the recommendation without using a specific example. """
 
 
-concierge_agent = chat_client.create_agent(
+concierge_agent = chat_client.as_agent(
     instructions=CONCIERGE_AGENT_INSTRUCTIONS,
     name=CONCIERGE_AGENT_NAMES,
 )

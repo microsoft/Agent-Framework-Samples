@@ -1,9 +1,14 @@
 import os 
+from pathlib import Path
 
 from agent_framework.openai import OpenAIChatClient  
 from dotenv import load_dotenv  # 📁 Secure configuration loading
 
-load_dotenv()  # 📁 Load .env file for secure config
+# Load .env from workflow directory or root
+env_path = Path(__file__).parent.parent / "workflow" / ".env"
+if not env_path.exists():
+    env_path = Path(__file__).parent.parent.parent.parent.parent.parent / ".env"
+load_dotenv(env_path)  # 📁 Load .env file for secure config
 
 
 chat_client = OpenAIChatClient(
@@ -25,7 +30,7 @@ FRONTEND_AGENT_INSTRUCTIONS = """
             """
 
 
-frontend_agent = chat_client.create_agent(
+frontend_agent = chat_client.as_agent(
     instructions=FRONTEND_AGENT_INSTRUCTIONS,
     name=FRONTEND_AGENT_NAMES,
 )

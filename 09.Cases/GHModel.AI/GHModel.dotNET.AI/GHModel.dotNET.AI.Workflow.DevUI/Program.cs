@@ -53,7 +53,7 @@ internal static class Program
     private static void Main(string[] args)
     {
         // Load environment variables from .env file
-        Env.Load(".env");
+        Env.Load("../../../../.env");
 
         var builder = WebApplication.CreateBuilder(args);
 

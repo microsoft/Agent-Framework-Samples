@@ -25,7 +25,7 @@ FRONTEND_AGENT_INSTRUCTIONS = """
             """
 
 
-frontend_agent = chat_client.create_agent(
+frontend_agent = chat_client.as_agent(
     instructions=FRONTEND_AGENT_INSTRUCTIONS,
     name=FRONTEND_AGENT_NAMES,
 )

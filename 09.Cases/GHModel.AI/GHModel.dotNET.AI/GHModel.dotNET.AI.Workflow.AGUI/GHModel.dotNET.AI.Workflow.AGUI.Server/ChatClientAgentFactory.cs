@@ -24,7 +24,7 @@ internal static class ChatClientAgentFactory
     public static void Initialize()
     {
 
-        Env.Load(".env");
+        Env.Load("../../../../../.env");
         string github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
         github_model_id =  Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? throw new InvalidOperationException("GITHUB_MODEL_ID is not set.");
         string github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
@@ -61,9 +61,9 @@ internal static class ChatClientAgentFactory
 
         
 
-        AIAgent reviewerAgent = chatClient.CreateAIAgent(
+        AIAgent reviewerAgent = chatClient.AsAIAgent(
             name:ReviewerAgentName,instructions:ReviewerAgentInstructions);
-        AIAgent frontDeskAgent  = chatClient.CreateAIAgent(
+        AIAgent frontDeskAgent  = chatClient.AsAIAgent(
             name:FrontDeskAgentName,instructions:FrontDeskAgentInstructions);
 
         var workflow = new WorkflowBuilder(frontDeskAgent)

@@ -94,7 +94,7 @@ Console.WriteLine("""
 
 
 
-Env.Load(".env");
+Env.Load("../../../../.env");
 
 var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
 var github_model_id =  Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? throw new InvalidOperationException("GITHUB_MODEL_ID is not set.");
@@ -130,12 +130,12 @@ const string FrontDeskAgentInstructions = @"""
 
 
 
-var reviewerAgentBuilder = new AIAgentBuilder(chatClient.CreateAIAgent(
+var reviewerAgentBuilder = new AIAgentBuilder(chatClient.AsAIAgent(
     name: ReviewerAgentName,
     instructions: ReviewerAgentInstructions))
     .UseOpenTelemetry(SourceName, configure: cfg => cfg.EnableSensitiveData = true);
 
-var frontDeskAgentBuilder = new AIAgentBuilder(chatClient.CreateAIAgent(
+var frontDeskAgentBuilder = new AIAgentBuilder(chatClient.AsAIAgent(
     name: FrontDeskAgentName,
     instructions: FrontDeskAgentInstructions))
     .UseOpenTelemetry(SourceName, configure: cfg => cfg.EnableSensitiveData = true);
@@ -153,7 +153,7 @@ var workflowAgentBuilder = new AIAgentBuilder(workflow.AsAgent("travel-workflow"
 
 AIAgent workflow_agent = workflowAgentBuilder.Build(serviceProvider);
 
-var thread = workflow_agent.GetNewThread();
+var thread =  await workflow_agent.GetNewThreadAsync();
 
 Console.WriteLine("\n💡 Before starting, run the VS Code command 'AI Toolkit: Open Trace Viewer (ai-mlstudio.tracing.open)' to capture traces in the AI Toolkit collector.\n");
 

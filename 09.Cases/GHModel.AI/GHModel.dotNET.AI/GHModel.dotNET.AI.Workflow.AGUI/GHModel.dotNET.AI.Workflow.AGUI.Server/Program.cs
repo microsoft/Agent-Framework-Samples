@@ -15,7 +15,7 @@ using OpenAI;
 using OpenAI.Chat;
 using DotNetEnv;
 
-Env.Load(".env");
+Env.Load("../../../../../.env");
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

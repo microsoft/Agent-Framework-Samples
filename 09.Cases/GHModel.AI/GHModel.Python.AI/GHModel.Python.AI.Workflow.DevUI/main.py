@@ -20,7 +20,7 @@ def main():
     logger.info("Entity ID: workflow_content")
 
     # Launch server with the workflow
-    serve(entities=[workflow], port=8090, auto_open=True, tracing_enabled=True)
+    serve(entities=[workflow], port=8090, auto_open=True)
 
     
 

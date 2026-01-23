@@ -21,7 +21,7 @@ CONCIERGE_AGENT_INSTRUCTIONS = """
             If not, provide insight on how to refine the recommendation without using a specific example. """
 
 
-concierge_agent = chat_client.create_agent(
+concierge_agent = chat_client.as_agent(
     instructions=CONCIERGE_AGENT_INSTRUCTIONS,
     name=CONCIERGE_AGENT_NAMES,
 )
