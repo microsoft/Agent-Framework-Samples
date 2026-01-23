@@ -53,13 +53,13 @@ internal static class Program
     private static void Main(string[] args)
     {
         // Load environment variables from .env file
-        Env.Load(".env");
+        Env.Load("../../../.env");
 
         var builder = WebApplication.CreateBuilder(args);
 
         // Set up the Azure OpenAI client
         var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-        var github_model_id =  "openai/gpt-5";
+        var github_model_id =  "gpt-4o";
         var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
 
         var openAIOptions = new OpenAIClientOptions()
