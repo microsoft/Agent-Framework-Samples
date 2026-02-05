@@ -48,7 +48,7 @@ AIAgent agent = await aiProjectClient
                 For questions that do have relevant content in the document, respond accurately and cite the document explicitly.",
         tools: [fileSearchTool]);
 
-AgentThread thread = await agent.GetNewThreadAsync();
+AgentSession session = await agent.CreateSessionAsync();
 
-Console.WriteLine(await agent.RunAsync("Can you explain Contoso's travel insurance coverage?", thread));
+Console.WriteLine(await agent.RunAsync("Can you explain Contoso's travel insurance coverage?", session));
 

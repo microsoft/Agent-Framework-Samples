@@ -9,7 +9,7 @@ using OpenAI;
 using DotNetEnv;
 
 // Load environment variables from .env file
-Env.Load("../../../.env");
+Env.Load("../../../../.env");
 
 // Get GitHub Models configuration from environment variables
 var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") 

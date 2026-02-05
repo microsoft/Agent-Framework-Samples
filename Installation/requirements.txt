@@ -4,3 +4,7 @@ agent-framework-devui @ git+https://github.com/microsoft/agent-framework.git@mai
 agent-framework-ag-ui @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/ag-ui
 agent-framework-anthropic @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/anthropic
 agent-framework-ollama @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/ollama
+agent-framework-a2a @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/a2a
+agent-framework-github-copilot @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/github_copilot
+agent-framework-declarative @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/declarative
+agent-framework-foundry-local @ git+https://github.com/microsoft/agent-framework.git@main#subdirectory=python/packages/foundry_local

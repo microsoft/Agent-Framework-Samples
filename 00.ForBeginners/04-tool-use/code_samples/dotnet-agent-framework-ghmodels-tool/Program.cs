@@ -52,10 +52,11 @@ AIAgent agent = openAIClient.GetChatClient(github_model_id).AsIChatClient().AsAI
 );
 
 // Create conversation thread for context
-AgentThread thread = await agent.GetNewThreadAsync();
+// AgentThread thread = await agent.GetNewThreadAsync(); 
+AgentSession session = await agent.CreateSessionAsync();
 
 // Run agent with tool invocation
-Console.WriteLine(await agent.RunAsync("Plan me a day trip", thread));
+Console.WriteLine(await agent.RunAsync("Plan me a day trip", session));
 
 // Follow-up request to demonstrate tool re-invocation
-Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", thread));
+Console.WriteLine(await agent.RunAsync("I don't like that destination. Plan me another vacation.", session));
