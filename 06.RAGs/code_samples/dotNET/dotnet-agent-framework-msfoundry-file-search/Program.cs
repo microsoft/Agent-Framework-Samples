@@ -48,7 +48,7 @@ AIAgent agent = await aiProjectClient
                 For questions that do have relevant content in the document, respond accurately and cite the document explicitly.",
         tools: [fileSearchTool]);
 
-AgentThread thread = await agent.GetNewThreadAsync();
+AgentSession session = await agent.CreateSessionAsync();
 
-Console.WriteLine(await agent.RunAsync("What's GraphRAG?", thread));
+Console.WriteLine(await agent.RunAsync("What's GraphRAG?", session));
 

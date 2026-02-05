@@ -47,8 +47,9 @@ ChatMessage userMessage = new ChatMessage(ChatRole.User, [
 ]);
 
 
-AgentThread thread = await agent.GetNewThreadAsync();
+
+AgentSession session = await agent.CreateSessionAsync();
 
 
-Console.WriteLine(await agent.RunAsync(userMessage, thread));
+Console.WriteLine(await agent.RunAsync(userMessage, session));
 

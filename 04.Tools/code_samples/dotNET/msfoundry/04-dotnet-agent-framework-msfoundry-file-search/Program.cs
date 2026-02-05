@@ -45,7 +45,8 @@ AIAgent agent = await aiProjectClient
         instructions: @"You are an AI assistant that helps people find information in a set of documents. Use the File Search tool to look up relevant information from the files when needed to answer user questions. If you don't know the answer, just say you don't know. Do not make up answers.",
         tools: [fileSearchTool]);
 
-AgentThread thread = await agent.GetNewThreadAsync();
 
-Console.WriteLine(await agent.RunAsync("What's graphrag?", thread));
+AgentSession session = await agent.CreateSessionAsync();
+
+Console.WriteLine(await agent.RunAsync("What's graphrag?", session));
 

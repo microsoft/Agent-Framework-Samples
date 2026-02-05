@@ -4,14 +4,14 @@ digraph Workflow {
   edge [color=black, arrowhead=vee];
 
   "ConcurrentStartExecutor" [fillcolor=lightgreen, label="ConcurrentStartExecutor\n(Start)"];
-  "Researcher_Agent_51444c3ba06e49b982a998f6d4c9eda5" [label="Researcher_Agent_51444c3ba06e49b982a998f6d4c9eda5"];
-  "Plan_Agent_b17aeb98096240a8a77f4c53eba62394" [label="Plan_Agent_b17aeb98096240a8a77f4c53eba62394"];
+  "Researcher_Agent_08c28b0460734ec298748de4128c5c53" [label="Researcher_Agent_08c28b0460734ec298748de4128c5c53"];
+  "Plan_Agent_90b50efcb23a411b9fc4dedbe46869e6" [label="Plan_Agent_90b50efcb23a411b9fc4dedbe46869e6"];
   "ConcurrentAggregationExecutor" [label="ConcurrentAggregationExecutor"];
 
-  "fan_in_ConcurrentAggregationExecutor_D27277FF" [shape=ellipse, fillcolor=lightgoldenrod, label="fan-in"];
-  "Plan_Agent_b17aeb98096240a8a77f4c53eba62394" -> "fan_in_ConcurrentAggregationExecutor_D27277FF";
-  "Researcher_Agent_51444c3ba06e49b982a998f6d4c9eda5" -> "fan_in_ConcurrentAggregationExecutor_D27277FF";
-  "fan_in_ConcurrentAggregationExecutor_D27277FF" -> "ConcurrentAggregationExecutor";
-  "ConcurrentStartExecutor" -> "Researcher_Agent_51444c3ba06e49b982a998f6d4c9eda5";
-  "ConcurrentStartExecutor" -> "Plan_Agent_b17aeb98096240a8a77f4c53eba62394";
+  "fan_in_ConcurrentAggregationExecutor_960B5710" [shape=ellipse, fillcolor=lightgoldenrod, label="fan-in"];
+  "Plan_Agent_90b50efcb23a411b9fc4dedbe46869e6" -> "fan_in_ConcurrentAggregationExecutor_960B5710";
+  "Researcher_Agent_08c28b0460734ec298748de4128c5c53" -> "fan_in_ConcurrentAggregationExecutor_960B5710";
+  "fan_in_ConcurrentAggregationExecutor_960B5710" -> "ConcurrentAggregationExecutor";
+  "ConcurrentStartExecutor" -> "Researcher_Agent_08c28b0460734ec298748de4128c5c53";
+  "ConcurrentStartExecutor" -> "Plan_Agent_90b50efcb23a411b9fc4dedbe46869e6";
 }
