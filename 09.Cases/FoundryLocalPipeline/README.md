@@ -1,5 +1,7 @@
 # How to Use an Microsoft Foundry Local to Build a Deep Research Scenario
 
+![bg](./imgs/bg.png)
+
 This repo shows how to use a Microsoft Foundry Local (example: Qwen2.5-1.5B) to build a Deep Research workflow, and how to evaluate, orchestrate, and visualize it with Microsoft Agent Framework (MAF).
 
 ## What You Will See
@@ -10,6 +12,31 @@ This repo shows how to use a Microsoft Foundry Local (example: Qwen2.5-1.5B) to 
 - An iterative Deep Research workflow built with MAF Workflows (with a web search tool).
 - Interactive observation and debugging with MAF DevUI.
 - A path toward observability and performance evaluation (with .NET Aspire).
+
+## How to Evaluation
+
+![eval](./imgs/eval.png)**
+
+Based on the Agent Framework evaluation samples, here are three complementary evaluation methods, with corresponding implementations and configurations in this repository:
+
+1. **Red Teaming (Security and Robustness)**
+
+   Purpose: Use systematic adversarial prompts to cover high-risk content and test the agent's security boundaries.
+
+   Method: Execute multiple attack strategies against the target agent, covering risk categories such as violence, hate/unfairness, sexual content, and self-harm.
+   
+2. **Self-Reflection (Quality Verification)**
+
+   Purpose: Let the agent perform secondary review of its own output, checking factual consistency, coverage, citation completeness, and answer structure.
+
+   Method: Add a "reflection round" after task output, where the agent provides self-assessment and improvement suggestions based on fixed dimensions, producing a revised version.
+
+   ***This content is temporarily omitted in the example***
+
+3. **Observability (Performance Metrics)**
+
+   Purpose: Measure end-to-end latency, stage-wise time consumption, and tool invocation overhead using metrics and distributed tracing.
+   Method: Enable OpenTelemetry to report workflow execution processes and tool invocations.
 
 
 ## Scenario Path (Step by Step)
@@ -28,6 +55,8 @@ This repo shows how to use a Microsoft Foundry Local (example: Qwen2.5-1.5B) to 
    - Review scorecards and outputs to understand safety gaps and response behavior.
    - Repo script:
      - [01.foundrylocal_maf_evaluation.py](01.foundrylocal_maf_evaluation.py)
+  
+   ![redteam](./imgs/redteam.png)
 
 3. Integrate Deep Research with Microsoft Agent Framework Workflows
    - Build a looped workflow that alternates between research and control decisions.
@@ -35,6 +64,9 @@ This repo shows how to use a Microsoft Foundry Local (example: Qwen2.5-1.5B) to 
    - Produce a final report that synthesizes all iterations with citations.
    - Repo script:
      - [02.foundrylocal_maf_workflow_deep_research_devui.py](02.foundrylocal_maf_workflow_deep_research_devui.py)
+   - Deep Research Workflow Structure
+
+      ![workflow](./imgs/workflow.png)
 
 4. Use Microsoft Agent Framework DevUI to evaluate Deep Research
    - Launch DevUI to visualize the workflow graph and step-by-step execution.
@@ -43,11 +75,15 @@ This repo shows how to use a Microsoft Foundry Local (example: Qwen2.5-1.5B) to 
    - Repo script (DevUI enabled by default):
      - [02.foundrylocal_maf_workflow_deep_research_devui.py](02.foundrylocal_maf_workflow_deep_research_devui.py)
 
+     ![devui](./imgs/devui.png)
+
 5. Use Microsoft Agent Framework and .NET Aspire for performance evaluation
    - Enable tracing and metrics to analyze latency, throughput, and tool usage.
    - Correlate workflow stages with system telemetry to spot bottlenecks.
    - Use distributed tracing to understand cross-component performance in agent runs.
      - [02.foundrylocal_maf_workflow_deep_research_devui.py](02.foundrylocal_maf_workflow_deep_research_devui.py)
+  
+   ![tracing](./imgs/tracing.png)
 
 ## Quick Start
 
@@ -105,7 +141,3 @@ python 02.foundrylocal_maf_workflow_deep_research_devui.py --cli
 
 - The workflow uses the `search_web` tool by default and outputs iterative summaries plus a final report.
 - The default model is `qwen2.5-1.5b-instruct-generic-cpu:4`. Update the scripts if you want to use a different local model.
-
-## Deep Research Workflow Structure
-
-![workflow](./imgs/workflow.png)
