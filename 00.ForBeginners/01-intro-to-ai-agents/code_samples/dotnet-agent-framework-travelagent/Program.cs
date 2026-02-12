@@ -3,28 +3,23 @@ using System.ComponentModel;
 using System.ClientModel;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
+using Azure.AI.OpenAI;
 using OpenAI;
 using DotNetEnv;
 
 // Load environment variables from .env file
-Env.Load("../../../../.env");
+Env.Load();
 
-// Get GitHub Models configuration from environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") 
+// Get Azure OpenAI configuration from environment variables
+var endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") 
 	?? throw new InvalidOperationException("GITHUB_ENDPOINT is required");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") 
+var model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
+var api_key = Environment.GetEnvironmentVariable("GITHUB_TOKEN") 
 	?? throw new InvalidOperationException("GITHUB_TOKEN is required");
 
-// Configure OpenAI client for GitHub Models
-var openAIOptions = new OpenAIClientOptions()
-{
-	Endpoint = new Uri(github_endpoint)
-};
-
 // Create AI Agent with custom tool
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
-	.GetChatClient(github_model_id)
+AIAgent agent = new AzureOpenAIClient(new Uri(endpoint), new ApiKeyCredential(api_key))
+	.GetChatClient(model_id)
 	.AsIChatClient()
 	.AsAIAgent(
 		name: "TravelAgent",
