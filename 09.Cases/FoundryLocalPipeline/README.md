@@ -4,6 +4,7 @@
 
 This repo shows how to use a Microsoft Foundry Local (example: Qwen2.5-1.5B) to build a Deep Research workflow, and how to evaluate, orchestrate, and visualize it with Microsoft Agent Framework (MAF).
 
+
 ## What You Will See
 
 - Foundry Local provides a local AI runtime for running SLMs on your own machine. 
