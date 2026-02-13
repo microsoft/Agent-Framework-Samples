@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-agent-framework-travelagent", "dotnet-agent-framework-travelagent.csproj", "{84534CF9-905D-F1F7-BE0B-AFD013A9C1AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84534CF9-905D-F1F7-BE0B-AFD013A9C1AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84534CF9-905D-F1F7-BE0B-AFD013A9C1AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84534CF9-905D-F1F7-BE0B-AFD013A9C1AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84534CF9-905D-F1F7-BE0B-AFD013A9C1AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C76B464-0241-4BFB-B5D1-B18BA27355F2}
+	EndGlobalSection
+EndGlobal
