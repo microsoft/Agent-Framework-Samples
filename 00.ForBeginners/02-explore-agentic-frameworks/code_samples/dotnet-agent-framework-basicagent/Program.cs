@@ -3,7 +3,8 @@ using System.ComponentModel;
 using System.ClientModel;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
-using OpenAI;
+using Azure;
+using Azure.AI.OpenAI;
 using DotNetEnv;
 
 // Load environment variables from .env file
@@ -16,11 +17,6 @@ var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "
 var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") 
 	?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
 
-// Configure OpenAI client for GitHub Models
-var openAIOptions = new OpenAIClientOptions()
-{
-	Endpoint = new Uri(github_endpoint)
-};
 
 // Agent Tool: Random Destination Generator
 [Description("Provides a random vacation destination.")]
@@ -45,7 +41,7 @@ static string GetRandomDestination()
 }
 
 // Create AI Agent with basic instructions and tool
-AIAgent agent = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions)
+AIAgent agent = new AzureOpenAIClient(new Uri(github_endpoint), new AzureKeyCredential(github_token))
 	.GetChatClient(github_model_id)
 	.AsIChatClient()
 	.AsAIAgent(

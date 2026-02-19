@@ -17,11 +17,8 @@
     <PackageReference Include="Azure.AI.Projects.OpenAI" Version="1.0.0-beta.5" />
     <PackageReference Include="Azure.AI.Agents.Persistent" Version="1.2.0-beta.8" />
     <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.2.0-preview.1.26063.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="/Users/lokinfey/Desktop/AOAI/Foundry/agent-framework/dotnet/src/Microsoft.Agents.AI.AzureAI/Microsoft.Agents.AI.AzureAI.csproj" />
-    <ProjectReference Include="/Users/lokinfey/Desktop/AOAI/Foundry/agent-framework/dotnet/src/Microsoft.Agents.AI/Microsoft.Agents.AI.csproj" />
+    <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-preview.260209.1" />
+    <PackageReference Include="Microsoft.Agents.AI.AzureAI" Version="1.0.0-preview.260209.1" />
   </ItemGroup>
 
 </Project>

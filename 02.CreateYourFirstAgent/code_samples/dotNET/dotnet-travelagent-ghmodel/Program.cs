@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.ClientModel;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
-using OpenAI;
+using Azure.AI.OpenAI;
 using DotNetEnv;
 
 // Load environment variables from .env file

@@ -1,6 +1,4 @@
-using System;
-using System.ClientModel;
-using System.Text.Json;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 public class TravelPlan
 {
@@ -8,5 +6,5 @@ public class TravelPlan
 	public string? Main_task { get; set; }
 
 	[JsonPropertyName("subtasks")]
-	public IList<Plan> Subtasks { get; set; }
+	public IList<Plan> Subtasks { get; set; } = new List<Plan>();
 }

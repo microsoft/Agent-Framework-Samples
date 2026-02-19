@@ -1,29 +1,24 @@
 ﻿using System;
-using System.ClientModel;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using Microsoft.Extensions.AI;
-using Microsoft.Agents.AI;
-using OpenAI;
+using Azure;
+using Azure.AI.OpenAI;
 using DotNetEnv;
+using Microsoft.Agents.AI;
+using Microsoft.Extensions.AI;
 
 
 // Load environment variables from .env file
 Env.Load("../../../../.env");
 
-// Get GitHub Models configuration from environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") 
-	?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") 
-	?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+// Get Azure OpenAI configuration from environment variables
+var endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT")
+	?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var deploymentName = Environment.GetEnvironmentVariable("AZURE_OPENAI_DEPLOYMENT")
+	?? throw new InvalidOperationException("AZURE_OPENAI_DEPLOYMENT is not set.");
+var apiKey = Environment.GetEnvironmentVariable("AZURE_OPENAI_KEY")
+	?? throw new InvalidOperationException("AZURE_OPENAI_KEY is not set.");
 
-// Configure OpenAI client for GitHub Models
-var openAIOptions = new OpenAIClientOptions()
-{
-	Endpoint = new Uri(github_endpoint)
-};
-var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+// Configure Azure OpenAI client for the specified deployment
+var azureOpenAIClient = new AzureOpenAIClient(new Uri(endpoint), new AzureKeyCredential(apiKey));
 
 // Planning agent configuration
 const string AGENT_NAME = "TravelPlanAgent";
@@ -50,6 +45,9 @@ ChatClientAgentOptions agentOptions = new()
 	}
 };
 
-AIAgent agent = openAIClient.GetChatClient(github_model_id).AsIChatClient().AsAIAgent(agentOptions);
+AIAgent agent = azureOpenAIClient
+	.GetChatClient(deploymentName)
+	.AsIChatClient()
+	.AsAIAgent(agentOptions);
 
 Console.WriteLine(await agent.RunAsync("Create a travel plan for a family of 4, with 2 kids, from Singapore to Melbourne"));
