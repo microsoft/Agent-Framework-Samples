@@ -47,3 +47,76 @@ The framework automatically emits events during an agent's run. By configuring a
 
 To review the sample code and learn how to configure the logger, check out the observability example here:
 [tracer_aspire](./python/tracer_aspire/)
+
+---
+
+## .NET Code Samples
+
+### 1. DevUI (.NET)
+
+The DevUI is also available in .NET as an ASP.NET Core hosted application. It provides the same browser-based interface for testing, debugging, and tracing agent workflows.
+
+| Sample | Description |
+|--------|-------------|
+| [GHModel.dotNET.AI.Workflow.DevUI](./dotNET/GHModel.dotNET.AI.Workflow.DevUI/) | ASP.NET Core app hosting the Agent Framework DevUI via `MapDevUI()`. Registers a sequential FrontDesk→Reviewer workflow and opens an interactive browser UI at `http://localhost:50518/devui`. |
+
+**Setup**
+
+```bash
+cd 08.EvaluationAndTracing/dotNET/GHModel.dotNET.AI.Workflow.DevUI
+
+dotnet user-secrets set "GITHUB_TOKEN"    "<your-github-pat>"
+dotnet user-secrets set "GITHUB_ENDPOINT" "https://models.inference.ai.azure.com"
+```
+
+**Run**
+
+```bash
+dotnet run
+```
+
+Open **http://localhost:50518/devui** to browse agent conversations, inspect individual message events, and debug tool calls interactively.
+
+---
+
+### 2. OpenTelemetry Tracing (.NET)
+
+For persistent, structured telemetry — traces, metrics, and logs exported to an OTLP collector — see the OpenTelemetry sample in `09.Cases`:
+
+| Sample | Description |
+|--------|-------------|
+| [GHModel.dotNET.AI.Workflow.OpenTelemetry](../09.Cases/GHModel.AI/GHModel.dotNET.AI/GHModel.dotNET.AI.Workflow.OpenTelemetry/) | Instruments a FrontDesk→Reviewer workflow with OpenTelemetry. Exports traces, metrics, and logs to the .NET Aspire dashboard via OTLP. Shows `TracerProvider` / `MeterProvider` setup, framework activity sources (`*Microsoft.Agents.AI`), custom spans, and HTTP client instrumentation. |
+
+**Setup**
+
+Start the .NET Aspire dashboard (local OTLP collector):
+
+```bash
+docker run --rm -p 18888:18888 -p 4317:4317 mcr.microsoft.com/dotnet/nightly/aspire-dashboard:latest
+```
+
+```bash
+cd 09.Cases/GHModel.AI/GHModel.dotNET.AI/GHModel.dotNET.AI.Workflow.OpenTelemetry
+
+dotnet user-secrets set "GITHUB_TOKEN"    "<your-github-pat>"
+dotnet user-secrets set "GITHUB_ENDPOINT" "https://models.inference.ai.azure.com"
+dotnet user-secrets set "GITHUB_MODEL_ID" "gpt-4o-mini"
+```
+
+**Run**
+
+```bash
+dotnet run
+# or file-based:
+dotnet run app.cs
+```
+
+Open **http://localhost:18888** to browse traces and metrics in the Aspire dashboard.
+
+| Telemetry capability | DevUI | OpenTelemetry |
+|---|---|---|
+| Real-time visual debugging | ✅ | ❌ |
+| Persistent structured traces | ❌ | ✅ |
+| Metrics (latency, counters) | ❌ | ✅ |
+| Works without extra infrastructure | ✅ | requires OTLP collector |
+| Best for | Development & debugging | Production observability |
