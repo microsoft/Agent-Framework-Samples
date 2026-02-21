@@ -3,7 +3,7 @@
     <Project Path="../00.ForBeginners/01-intro-to-ai-agents/code_samples/dotnet-agent-framework-travelagent/dotnet-agent-framework-travelagent.csproj" />
     <Project Path="../00.ForBeginners/04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool/dotnet-agent-framework-ghmodels-tool.csproj" />
     <Project Path="../00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/dotnet-agent-framework-msfoundry-file-search.csproj" />
-    <Project Path="../00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framrwork-ghmodel-planningdesign/dotnet-agent-framrwork-ghmodel-planningdesign.csproj" />
+    <Project Path="../00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framework-ghmodel-planningdesign/dotnet-agent-framework-ghmodel-planningdesign.csproj" />
     <Project Path="../00.ForBeginners/08-multi-agent/code_samples/dotnet-agent-framework-ghmodel-workflow-multi-agents/dotnet-agent-framework-ghmodel-workflow-multi-agents.csproj" />
   </Folder>
   <Folder Name="/00.ForBeginners/02-explore-agentic-frameworks/">
@@ -16,10 +16,10 @@
     <Project Path="../02.CreateYourFirstAgent/code_samples/dotNET/dotnet-travelagent-ghmodel/dotnet-travelagent-ghmodel.csproj" />
   </Folder>
   <Folder Name="/03.ExploreAgentFramework/">
-    <Project Path="../03.ExploerAgentFramework/code_samples/dotNET/01-dotnet-agent-framework-aoai/01-dotnet-agent-framework-aoai.csproj" />
-    <Project Path="../03.ExploerAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/02-dotnet-agent-framework-ghmodel.csproj" />
-    <Project Path="../03.ExploerAgentFramework/code_samples/dotNET/03-dotnet-agent-framework-msfoundry/03-dotnet-agent-framework-msfoundry.csproj" />
-    <Project Path="../03.ExploerAgentFramework/code_samples/dotNET/04-dotnet-agent-framework-foundrylocal/04-dotnet-agent-framework-foundrylocal.csproj" />
+    <Project Path="../03.ExploreAgentFramework/code_samples/dotNET/01-dotnet-agent-framework-aoai/01-dotnet-agent-framework-aoai.csproj" />
+    <Project Path="../03.ExploreAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/02-dotnet-agent-framework-ghmodel.csproj" />
+    <Project Path="../03.ExploreAgentFramework/code_samples/dotNET/03-dotnet-agent-framework-msfoundry/03-dotnet-agent-framework-msfoundry.csproj" />
+    <Project Path="../03.ExploreAgentFramework/code_samples/dotNET/04-dotnet-agent-framework-foundrylocal/04-dotnet-agent-framework-foundrylocal.csproj" />
   </Folder>
   <Folder Name="/04.Tools/">
     <Project Path="../04.Tools/code_samples/dotNET/msfoundry/01-dotnet-agent-framework-msfoundry-vision/01-dotnet-agent-framework-msfoundry-vision.csproj" />

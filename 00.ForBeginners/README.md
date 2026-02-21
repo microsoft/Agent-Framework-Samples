@@ -51,7 +51,7 @@ Explore advanced planning capabilities and design patterns with GitHub Models in
 
 **Code Samples:**
 - **Python:** [`python-agent-framrwork-ghmodel-planningdesign.ipynb`](./07-planning-design/code_samples/python-agent-framrwork-ghmodel-planningdesign.ipynb)
-- **.NET:** [`dotnet-agent-framrwork-ghmodel-planningdesign.ipynb`](./07-planning-design/code_samples/dotnet-agent-framrwork-ghmodel-planningdesign.ipynb)
+- **.NET:** [`dotnet-agent-framework-ghmodel-planningdesign`](./07-planning-design/code_samples/dotnet-agent-framework-ghmodel-planningdesign/)
 
 ### 08. Multi-Agent Systems
 Build collaborative multi-agent workflows using GitHub Models for complex problem-solving scenarios.
