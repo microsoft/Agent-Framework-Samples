@@ -9,12 +9,17 @@ using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
 using OpenAI.Assistants;
 using OpenAI.Responses;
+using Microsoft.Extensions.Configuration;
 
 // using OpenAI.Assistants;
 // using OpenAI.Responses;
 
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
 
-var azure_foundry_endpoint = Environment.GetEnvironmentVariable("AZURE_AI_PROJECT_ENDPOINT") ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT is not set.");
+var azure_foundry_endpoint = config["AZURE_AI_PROJECT_ENDPOINT"] ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT is not set.");
 var azure_foundry_model_id = "gpt-4.1-mini";
 
 const string AgentName = "Bing-Agent-Framework";
@@ -27,7 +32,7 @@ AIProjectClient aiProjectClient = new(
     new AzureCliCredential());
 
 
-var connectionName = Environment.GetEnvironmentVariable("BING_CONNECTION_NAME");
+var connectionName = config["BING_CONNECTION_NAME"];
 
 Console.WriteLine($"Using Bing Connection: {connectionName}");
 

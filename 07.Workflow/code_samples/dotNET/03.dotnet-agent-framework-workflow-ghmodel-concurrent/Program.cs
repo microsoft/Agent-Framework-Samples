@@ -6,12 +6,16 @@ using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
 using Microsoft.Agents.AI.Workflows.Reflection;
+using Microsoft.Extensions.Configuration;
 
-// Load environment variables
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
 
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
+var github_endpoint = config["GITHUB_ENDPOINT"] ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
 var github_model_id = "gpt-4o";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+var github_token = config["GITHUB_TOKEN"] ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
 
 // Configure OpenAI client
 var openAIOptions = new OpenAIClientOptions()

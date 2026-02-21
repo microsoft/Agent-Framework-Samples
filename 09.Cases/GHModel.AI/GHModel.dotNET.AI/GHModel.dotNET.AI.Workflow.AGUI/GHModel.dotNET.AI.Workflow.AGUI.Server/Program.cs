@@ -30,7 +30,7 @@ builder.Services.ConfigureHttpJsonOptions(options => options.SerializerOptions.T
 builder.Services.AddAGUI();
 
 
-ChatClientAgentFactory.Initialize();
+ChatClientAgentFactory.Initialize(builder.Configuration);
 
 WebApplication app = builder.Build();
 

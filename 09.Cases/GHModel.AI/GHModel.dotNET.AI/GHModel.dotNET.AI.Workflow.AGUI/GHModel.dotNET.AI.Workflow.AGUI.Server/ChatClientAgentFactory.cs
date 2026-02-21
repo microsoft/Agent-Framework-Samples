@@ -12,6 +12,7 @@ using Microsoft.Agents.AI.Workflows;
 using Microsoft.Agents.AI.Workflows.Reflection;
 using Microsoft.Extensions.AI;
 using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.Extensions.Configuration;
 using OpenAI;
 
 
@@ -20,12 +21,12 @@ internal static class ChatClientAgentFactory
     private static OpenAIClient? _openAIClient;
     private static string? github_model_id;
 
-    public static void Initialize()
+    public static void Initialize(IConfiguration config)
     {
 
-        string github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-        github_model_id =  Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? throw new InvalidOperationException("GITHUB_MODEL_ID is not set.");
-        string github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+        string github_endpoint = config["GITHUB_ENDPOINT"] ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set. Run: dotnet user-secrets set \"GITHUB_ENDPOINT\" \"<value>\"");
+        github_model_id = config["GITHUB_MODEL_ID"] ?? throw new InvalidOperationException("GITHUB_MODEL_ID is not set. Run: dotnet user-secrets set \"GITHUB_MODEL_ID\" \"<value>\"");
+        string github_token = config["GITHUB_TOKEN"] ?? throw new InvalidOperationException("GITHUB_TOKEN is not set. Run: dotnet user-secrets set \"GITHUB_TOKEN\" \"<value>\"");
 
 
         var openAIOptions = new OpenAIClientOptions()

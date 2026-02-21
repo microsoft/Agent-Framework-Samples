@@ -4,6 +4,7 @@ using System.ClientModel;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using OpenAI;
+using Microsoft.Extensions.Configuration;
 
 // Load environment variables from .env file
 
@@ -29,11 +30,15 @@ static string GetRandomDestination()
 	return destinations[index];
 }
 
-// Get GitHub Models configuration from environment variables
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") 
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
+
+var github_endpoint = config["GITHUB_ENDPOINT"] 
 	?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") 
+var github_model_id = config["GITHUB_MODEL_ID"] ?? "gpt-4o-mini";
+var github_token = config["GITHUB_TOKEN"] 
 	?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
 
 // Configure OpenAI client for GitHub Models

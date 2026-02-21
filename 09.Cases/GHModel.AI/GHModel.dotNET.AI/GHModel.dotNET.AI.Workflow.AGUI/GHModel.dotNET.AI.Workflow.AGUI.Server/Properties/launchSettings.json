@@ -1,8 +1,9 @@
 {
+  "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "GHModel_dotNET_AI_Workflow_AGUI_Server": {
+    "AGUI_Server": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "dotnetRunMessages": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

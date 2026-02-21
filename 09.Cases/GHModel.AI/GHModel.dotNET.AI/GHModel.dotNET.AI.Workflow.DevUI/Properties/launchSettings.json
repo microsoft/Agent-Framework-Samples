@@ -1,9 +1,11 @@
 {
+  "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "Dev_UI_Applcaiton": {
+    "DevUI_Application": {
       "commandName": "Project",
       "launchUrl": "devui",
       "launchBrowser": true,
+      "dotnetRunMessages": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

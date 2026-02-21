@@ -13,10 +13,15 @@ internal sealed class Program
 {
     public static async Task Main(string[] args)
     {
-        // IConfiguration configuration = Application.InitializeConfig();
-        Uri foundryEndpoint = new("https://kinfey-ai-ignite-demo-resource.services.ai.azure.com/api/projects/kinfey-ai-ignite-demo");
+        var config = new ConfigurationBuilder()
+            .AddUserSecrets<Program>()
+            .AddEnvironmentVariables()
+            .Build();
 
-        WorkflowFactory workflowFactory = new("/Users/lokinfey/Desktop/AOAI/Foundry/FoundryV2/dotNET/decalareUI/YAML/workflowv2.yaml", foundryEndpoint);
+        Uri foundryEndpoint = new(config["AZURE_AI_PROJECT_ENDPOINT"] ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT is not set. Run: dotnet user-secrets set \"AZURE_AI_PROJECT_ENDPOINT\" \"<value>\""));
+        string yamlPath = config["WORKFLOW_YAML_PATH"] ?? "workflow.yaml";
+
+        WorkflowFactory workflowFactory = new(yamlPath, foundryEndpoint);
         WorkflowRunner runner = new();
         await runner.ExecuteAsync(workflowFactory.CreateWorkflow, "junior developer");    
     }

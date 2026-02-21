@@ -2,9 +2,15 @@ using Azure.AI.OpenAI;
 using Azure.Identity;
 using Microsoft.Agents.AI;
 using OpenAI.Chat;
+using Microsoft.Extensions.Configuration;
 
-var aoai_endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT") ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
-var aoai_model_id = Environment.GetEnvironmentVariable("AZURE_OPENAI_RESPONSES_DEPLOYMENT_NAME") ?? "gpt-4.1-mini";
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
+
+var aoai_endpoint = config["AZURE_OPENAI_ENDPOINT"] ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
+var aoai_model_id = config["AZURE_OPENAI_RESPONSES_DEPLOYMENT_NAME"] ?? "gpt-4.1-mini";
 
 Console.WriteLine($"Using Azure OpenAI Endpoint: {aoai_endpoint}");
 Console.WriteLine($"Using Azure OpenAI Model Deployment: {aoai_model_id}");

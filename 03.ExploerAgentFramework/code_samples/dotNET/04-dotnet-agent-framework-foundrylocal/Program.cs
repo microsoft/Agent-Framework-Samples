@@ -3,13 +3,18 @@ using System.ClientModel;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using OpenAI;
+using Microsoft.Extensions.Configuration;
 
 // Load environment variables from .env file
 
-// Get Foundry Local configuration from environment variables
-var foundryLocalEndpoint = Environment.GetEnvironmentVariable("FOUNDRYLOCAL_ENDPOINT") 
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
+
+var foundryLocalEndpoint = config["FOUNDRYLOCAL_ENDPOINT"] 
     ?? throw new InvalidOperationException("FOUNDRYLOCAL_ENDPOINT is not set.");
-var foundryLocalModelId = Environment.GetEnvironmentVariable("FOUNDRYLOCAL_MODEL_DEPLOYMENT_NAME") 
+var foundryLocalModelId = config["FOUNDRYLOCAL_MODEL_DEPLOYMENT_NAME"] 
     ?? throw new InvalidOperationException("FOUNDRYLOCAL_MODEL_DEPLOYMENT_NAME is not set.");
 
 Console.WriteLine($"Endpoint: {foundryLocalEndpoint}");
