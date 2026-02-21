@@ -24,6 +24,7 @@
   </Folder>
   <Folder Name="/05.Providers/">
     <Project Path="../05.Providers/code_samples/dotNET/01-dotnet-agent-framework-aifoundry-mcp/AgentMCP.Console/AgentMCP.Console.csproj" />
+    <Project Path="../05.Providers/code_samples/dotNET/02-dotnet-agent-framework-ghmodel-a2a/02-dotnet-agent-framework-ghmodel-a2a.csproj" />
   </Folder>
   <Folder Name="/06.RAGs/">
     <Project Path="../06.RAGs/code_samples/dotNET/dotnet-agent-framework-msfoundry-file-search/dotnet-agent-framework-msfoundry-file-search.csproj" />
