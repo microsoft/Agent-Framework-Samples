@@ -28,3 +28,9 @@ dotnet user-secrets set "AZURE_AI_MODEL_DEPLOYMENT_NAME" "gpt-4o-mini"
 ```bash
 dotnet run
 ```
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```

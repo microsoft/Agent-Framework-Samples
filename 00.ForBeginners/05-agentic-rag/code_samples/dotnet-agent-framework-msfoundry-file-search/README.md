@@ -26,3 +26,9 @@ dotnet run
 ```
 
 > The sample uploads `../document.md` (located in the `05-agentic-rag/code_samples/` folder) to Foundry at startup.
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```

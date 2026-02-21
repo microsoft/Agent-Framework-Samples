@@ -1,0 +1,108 @@
+// File-based run: dotnet run app.cs
+#:property UserSecretsId c2f12400-7f7c-41bd-a2c5-188e7dbb4e13
+#:package Microsoft.Extensions.AI@10.3.0
+#:package Microsoft.Extensions.AI.OpenAI@10.3.0
+#:package OpenAI@2.8.0
+#:package Microsoft.Agents.AI@1.0.0-rc1
+#:package Microsoft.Agents.AI.OpenAI@1.0.0-rc1
+#:package Microsoft.Agents.AI.Workflows@1.0.0-rc1
+#:package Microsoft.Extensions.Configuration.UserSecrets@10.0.0
+#:package Microsoft.Extensions.Configuration.EnvironmentVariables@10.0.0
+
+using System;
+using System.ComponentModel;
+using System.ClientModel;
+using OpenAI;
+using Microsoft.Extensions.AI;
+using Microsoft.Agents.AI;
+using Microsoft.Agents.AI.Workflows;
+using Microsoft.Extensions.Configuration;
+
+// Load environment variables
+
+// Get GitHub configuration
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
+
+var github_endpoint = config["GITHUB_ENDPOINT"] ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
+var github_model_id = config["GITHUB_MODEL_ID"] ?? "gpt-4o-mini";
+var github_token = config["GITHUB_TOKEN"] ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+
+// Configure OpenAI client
+var openAIOptions = new OpenAIClientOptions()
+{
+    Endpoint = new Uri(github_endpoint)
+};
+
+var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
+
+// Define agent configurations
+const string ReviewerAgentName = "Concierge";
+const string ReviewerAgentInstructions = @"
+    You are an are hotel concierge who has opinions about providing the most local and authentic experiences for travelers.
+    The goal is to determine if the front desk travel agent has recommended the best non-touristy experience for a traveler.
+    If so, state that it is approved.
+    If not, provide insight on how to refine the recommendation without using a specific example. 
+    ";
+
+const string FrontDeskAgentName = "FrontDesk";
+const string FrontDeskAgentInstructions = @"
+    You are a Front Desk Travel Agent with ten years of experience and are known for brevity as you deal with many customers.
+    The goal is to provide the best activities and locations for a traveler to visit.
+    Only provide a single recommendation per response.
+    You're laser focused on the goal at hand.
+    Don't waste time with chit chat.
+    Consider suggestions when refining an idea.
+    ";
+
+// Create AI agents
+AIAgent reviewerAgent = openAIClient.GetChatClient(github_model_id).AsIChatClient().AsAIAgent(
+    name: ReviewerAgentName, instructions: ReviewerAgentInstructions);
+AIAgent frontDeskAgent = openAIClient.GetChatClient(github_model_id).AsIChatClient().AsAIAgent(
+    name: FrontDeskAgentName, instructions: FrontDeskAgentInstructions);
+
+// Build workflow
+var workflow = new WorkflowBuilder(frontDeskAgent)
+    .AddEdge(frontDeskAgent, reviewerAgent)
+    .Build();
+
+// Create user message
+ChatMessage userMessage = new ChatMessage(ChatRole.User, [
+    new TextContent("I would like to go to Paris.")
+]);
+
+// Execute workflow
+await using StreamingRun run = await InProcessExecution.RunStreamingAsync(workflow, userMessage);
+
+// Process workflow events
+await run.TrySendMessageAsync(new TurnToken(emitEvents: true));
+
+string messageData = "";
+
+await foreach (WorkflowEvent evt in run.WatchStreamAsync().ConfigureAwait(false))
+{
+    if (evt is AgentResponseUpdateEvent executorComplete)
+    {
+        messageData += executorComplete.Data;
+        Console.WriteLine($"{executorComplete.ExecutorId}: {executorComplete.Data}");
+    }
+}
+
+Console.WriteLine("\n=== Final Output ===");
+Console.WriteLine(messageData);
+
+// Mermaid
+Console.WriteLine("\nMermaid string: \n=======");
+var mermaid = workflow.ToMermaidString();
+Console.WriteLine(mermaid);
+Console.WriteLine("=======");
+
+// DOT - Save to file instead of stdout to avoid pipe issues
+var dotString = workflow.ToDotString();
+var dotFilePath = "workflow.dot";
+File.WriteAllText(dotFilePath, dotString);
+Console.WriteLine($"\nDOT graph saved to: {dotFilePath}");
+Console.WriteLine("To generate image: dot -Tsvg workflow.dot -o workflow.svg");
+Console.WriteLine("                   dot -Tpng workflow.dot -o workflow.png");

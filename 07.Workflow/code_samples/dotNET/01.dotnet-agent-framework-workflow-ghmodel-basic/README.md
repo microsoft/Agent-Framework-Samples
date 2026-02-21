@@ -24,3 +24,9 @@ dotnet user-secrets set "GITHUB_MODEL_ID" "gpt-4o-mini"
 ```bash
 dotnet run
 ```
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```

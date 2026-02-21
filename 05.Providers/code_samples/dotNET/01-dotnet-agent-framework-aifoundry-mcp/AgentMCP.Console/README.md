@@ -26,3 +26,9 @@ dotnet run
 ```
 
 When the agent wants to call an MCP tool, it will prompt you to enter `Y` to approve before the call is made.
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```

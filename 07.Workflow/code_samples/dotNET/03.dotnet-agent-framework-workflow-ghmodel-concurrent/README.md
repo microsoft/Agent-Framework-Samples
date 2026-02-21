@@ -27,3 +27,9 @@ dotnet user-secrets set "GITHUB_ENDPOINT" "https://models.inference.ai.azure.com
 ```bash
 dotnet run
 ```
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```

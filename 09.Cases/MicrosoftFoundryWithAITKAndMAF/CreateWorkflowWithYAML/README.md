@@ -31,3 +31,11 @@ The default YAML files (`workflow.yaml`, `apply_agent.yaml`, `hiring_manager_age
 ```bash
 dotnet run
 ```
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```
+
+> **Note:** YAML workflow files are expected at `../YAML/workflow.yaml` relative to the `CreateWorkflowWithYAML/` directory. Run the command from that directory, or override with `dotnet user-secrets set "WORKFLOW_YAML_PATH" "<path>"`.

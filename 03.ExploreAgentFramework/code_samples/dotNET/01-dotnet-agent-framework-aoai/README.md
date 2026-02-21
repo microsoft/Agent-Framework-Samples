@@ -24,3 +24,9 @@ dotnet user-secrets set "AZURE_OPENAI_RESPONSES_DEPLOYMENT_NAME" "gpt-4.1-mini"
 ```bash
 dotnet run
 ```
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```

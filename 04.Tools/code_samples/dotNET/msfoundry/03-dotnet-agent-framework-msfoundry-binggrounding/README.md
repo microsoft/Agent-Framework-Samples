@@ -25,3 +25,9 @@ dotnet user-secrets set "BING_CONNECTION_NAME" "<your-bing-connection-name>"
 ```bash
 dotnet run
 ```
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```

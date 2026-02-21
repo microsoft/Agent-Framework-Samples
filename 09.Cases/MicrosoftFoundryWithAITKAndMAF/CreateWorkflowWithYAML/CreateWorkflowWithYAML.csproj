@@ -30,4 +30,8 @@
     <Content Include="..\YAML\hiring_manager_agent.yaml" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Compile Remove="app.cs" />
+  </ItemGroup>
 </Project>

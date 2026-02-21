@@ -25,3 +25,9 @@ dotnet user-secrets set "FOUNDRYLOCAL_MODEL_DEPLOYMENT_NAME" "<model-alias>"
 ```bash
 dotnet run
 ```
+
+## Run with file-based approach (.NET 10)
+
+```bash
+dotnet run app.cs
+```
