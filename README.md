@@ -18,7 +18,7 @@ This repository provides step-by-step tutorials and real-world examples covering
 
 ## 📁 Repository Structure
 
-| Directory | Description | .NET Code Samples | Python Code Samples |
+| Directory | Description | .NET Code Samples ✅ | Python Code Samples |
 |-----------|-------------|-------------------|---------------------|
 | **[00.ForBeginners](./00.ForBeginners/README.md)** | **Beginner-friendly Microsoft Agent Framework examples extending [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)** | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/dotnet-agent-framework-travelagent/)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/dotnet-agent-framework-basicagent/)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/dotnet-agent-framework-basicagent/)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool/)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framework-ghmodel-planningdesign/)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/dotnet-agent-framework-ghmodel-workflow-multi-agents/) | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/python-agent-framework-travelagent.ipynb)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/python-agent-framework-basicagent.ipynb)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/python-agent-framework-ghmodel-basicagent.ipynb)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/python-agent-framework-ghmodel-tools.ipynb)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/python-agent-framework-msfoundry-file-search.ipynb)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/python-agent-framrwork-ghmodel-planningdesign.ipynb)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/python-agent-framework-ghmodel-workflow-multi-agents.ipynb) |
 | **[01.AgentFoundation](./01.AgentFoundation/README.md)** | Core concepts and architecture of Microsoft Agent Framework | *Documentation Only* | *Documentation Only* |
@@ -35,7 +35,7 @@ This repository provides step-by-step tutorials and real-world examples covering
 
 ***Note: This is installation guideline***
 
-> ⚠️ **Important Notice**: Microsoft Agent Framework is currently in the **development/preview stage**. Since the framework APIs and features may change frequently, **we strongly recommend building from source** rather than using NuGet packages to ensure you have the latest updates and bug fixes.
+> ⚠️ **Important Notice**: Microsoft Agent Framework is currently in the **development/preview stage**. The framework APIs and features may change between releases.
 
 > 📌 **Additional Notes**: 
 > 1. The examples in this repository are primarily based on **GitHub Models** and **Microsoft Foundry**. You can access GitHub Models directly at https://gh.io/models
@@ -58,17 +58,12 @@ pip install -e .
 ```
 
 ### .NET Environment
-- .NET 9.0 or higher
-- Visual Studio 2022 or VS Code with C# extension
+- .NET 10 SDK ([download](https://dotnet.microsoft.com/download/dotnet/10.0))
+- VS Code with C# extension, or Visual Studio 2022 17.14+
 
-**Build from Source (Recommended):**
+All .NET samples use NuGet packages and run with `dotnet run` from the project folder. No local source build is required.
 
-```bash
-git clone https://github.com/microsoft/agent-framework.git
-cd agent-framework/dotnet && dotnet build agent-framework-dotnet.slnx
-```
-
-After building, reference the local project in your notebooks or applications instead of NuGet packages. This ensures compatibility with the latest framework changes.
+Configure secrets for each sample with `dotnet user-secrets` — see each sample's `README.md` for the exact commands.
 
 
 ## 💻 Platform-Specific Setup
@@ -98,7 +93,7 @@ $env:OPENSSL_STATIC="1"
 
 ## 🚀 Quick Start
 
-### Environment Setup
+### Python — Environment Setup
 
 Create a `.env` file in the root directory with your configurations:
 
@@ -122,6 +117,20 @@ BING_CONNECTION_ID="Your Bing Connection ID"
 BING_CONNECTION_NAME="Your Bing Connection Name"
 
 OTEL_EXPORTER_OTLP_ENDPOINT="Your OpenTelemetry Collector Endpoint e.g. http://localhost:4317"
+```
+
+### .NET — Environment Setup
+
+.NET samples use `dotnet user-secrets` for local credential management — credentials are stored securely in your OS user profile, never in the repository.
+
+Each sample's `README.md` lists the exact `dotnet user-secrets set` commands. For example:
+
+```bash
+cd <sample-folder>
+dotnet user-secrets set "GITHUB_TOKEN" "your-token-here"
+dotnet user-secrets set "ENDPOINT" "https://models.inference.ai.azure.com"
+dotnet user-secrets set "MODEL" "gpt-4o-mini"
+dotnet run
 ```
 
 

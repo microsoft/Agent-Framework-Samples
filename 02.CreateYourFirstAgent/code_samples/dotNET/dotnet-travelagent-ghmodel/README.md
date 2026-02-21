@@ -1,5 +1,7 @@
 # Travel Agent — Create Your First Agent (.NET)
 
+> **Maintainer note:** This sample is structurally identical to [`00.ForBeginners/01-intro-to-ai-agents/…/dotnet-agent-framework-travelagent`](../../../../00.ForBeginners/01-intro-to-ai-agents/code_samples/dotnet-agent-framework-travelagent/). Consider differentiating them conceptually (e.g., expand this one with session memory, multi-turn conversation, or a richer tool set) or consolidating into a single canonical sample.
+
 A hands-on "Hello World" for the Microsoft Agent Framework. Builds a travel-planning agent backed by **GitHub Models**, attaches a destination-picker tool, and exercises both awaited and streaming invocation styles.
 
 ## What it shows

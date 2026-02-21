@@ -1,5 +1,7 @@
 # RAG — File Search with Azure AI Foundry (.NET)
 
+> **Maintainer note:** This sample shares the same agent pattern as [`00.ForBeginners/05-agentic-rag/…/dotnet-agent-framework-msfoundry-file-search`](../../../../00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/). The two differ only in the uploaded document (`demo.md` here vs. `document.md` there) and the seed question. Consider converging them on a single document or expanding this chapter-level sample with additional RAG patterns (e.g., hybrid search, metadata filters).
+
 Uploads a Markdown knowledge-base document to Azure AI Foundry and uses `HostedFileSearchTool` to build a retrieval-augmented generation (RAG) pipeline. The agent answers questions using only the indexed document.
 
 ## What it shows
