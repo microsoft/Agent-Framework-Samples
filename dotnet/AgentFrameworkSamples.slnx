@@ -1,16 +1,11 @@
 <Solution>
   <Folder Name="/00.ForBeginners/">
-    <Project Path="../00.ForBeginners/01-intro-to-ai-agents/code_samples/dotnet-agent-framework-travelagent/dotnet-agent-framework-travelagent.csproj" />
     <Project Path="../00.ForBeginners/04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool/dotnet-agent-framework-ghmodels-tool.csproj" />
     <Project Path="../00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/dotnet-agent-framework-msfoundry-file-search.csproj" />
     <Project Path="../00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framework-ghmodel-planningdesign/dotnet-agent-framework-ghmodel-planningdesign.csproj" />
-    <Project Path="../00.ForBeginners/08-multi-agent/code_samples/dotnet-agent-framework-ghmodel-workflow-multi-agents/dotnet-agent-framework-ghmodel-workflow-multi-agents.csproj" />
   </Folder>
-  <Folder Name="/00.ForBeginners/02-explore-agentic-frameworks/">
-    <Project Path="../00.ForBeginners/02-explore-agentic-frameworks/code_samples/dotnet-agent-framework-basicagent/dotnet-agent-framework-basicagent.csproj" />
-  </Folder>
-  <Folder Name="/00.ForBeginners/03-agentic-design-patterns/">
-    <Project Path="../00.ForBeginners/03-agentic-design-patterns/code_samples/dotnet-agent-framework-basicagent/dotnet-agent-framework-basicagent.csproj" />
+  <Folder Name="/01.AgentFoundation/">
+    <Project Path="../01.AgentFoundation/code_samples/dotNET/dotnet-agent-foundation/dotnet-agent-foundation.csproj" />
   </Folder>
   <Folder Name="/02.CreateYourFirstAgent/">
     <Project Path="../02.CreateYourFirstAgent/code_samples/dotNET/dotnet-travelagent-ghmodel/dotnet-travelagent-ghmodel.csproj" />

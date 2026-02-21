@@ -1,13 +1,19 @@
 # Conditional Workflow — Azure AI Foundry (.NET)
 
-Placeholder for a conditional branching workflow backed by **Azure AI Foundry**. The workflow will route agent execution to different paths based on run-time conditions evaluated by the workflow engine.
+Demonstrates **conditional edge routing** using Azure AI Foundry and the Microsoft Agent Framework. A reviewer agent inspects content and routes it along different workflow paths depending on its decision.
 
-> **Status:** Implementation in progress. Run the project to see the scaffold output.
+## What it demonstrates
+- Defining conditional edges with `AddEdge<T>(source, target, condition)` that branch based on agent output
+- A **content quality gate**: the reviewer outputs `APPROVED` or `REVISE`, routing to different downstream agents
+- Azure AI Foundry persistent agents (`CreateAIAgentAsync`) as the backing provider
 
-## What it will show
-- Defining conditional edges in `WorkflowBuilder` that branch based on agent output
-- Routing messages to different specialist agents depending on a decision condition
-- Azure AI Foundry as the backing provider for a multi-agent conditional workflow
+## Workflow
+
+```
+writerAgent → reviewerAgent
+                  ↓ [APPROVED] ──────────────── publisherAgent
+                  ↓ [REVISE]   → editorAgent → publisherAgent
+```
 
 ## Prerequisites
 - [.NET 10 SDK](https://dot.net)
