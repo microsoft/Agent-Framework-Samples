@@ -12,7 +12,6 @@ using System;
 using System.ComponentModel;
 using System.ClientModel;
 using Azure.Identity;   
-using DotNetEnv;
 using OpenAI;
 
 using Microsoft.Agents.AI;
@@ -53,7 +52,6 @@ internal static class Program
     private static void Main(string[] args)
     {
         // Load environment variables from .env file
-        Env.Load("../../../.env");
 
         var builder = WebApplication.CreateBuilder(args);
 

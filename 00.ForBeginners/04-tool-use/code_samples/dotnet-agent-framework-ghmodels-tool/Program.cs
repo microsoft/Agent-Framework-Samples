@@ -1,13 +1,11 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.ClientModel;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using OpenAI;
-using DotNetEnv;
 
 // Load environment variables from .env file
-Env.Load("../../../../.env");
 
 // Tool: Random Destination Generator
 [Description("Provides a random vacation destination.")]

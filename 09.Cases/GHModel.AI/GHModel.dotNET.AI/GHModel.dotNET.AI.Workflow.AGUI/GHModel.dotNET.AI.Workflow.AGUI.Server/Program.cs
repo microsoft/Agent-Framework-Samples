@@ -13,9 +13,6 @@ using Microsoft.Extensions.AI;
 using Microsoft.AspNetCore.HttpLogging;
 using OpenAI;
 using OpenAI.Chat;
-using DotNetEnv;
-
-Env.Load("../../../../../.env");
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 

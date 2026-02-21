@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.0.0-preview.251114.1" />
-    <PackageReference Include="Microsoft.Agents.AI.Workflows.Declarative" Version="1.0.0-preview.251114.1" />
-    <PackageReference Include="Microsoft.Agents.AI.Workflows.Declarative.AzureAI" Version="1.0.0-preview.251114.1" />
+    <PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.0.0-rc1" />
+    <PackageReference Include="Microsoft.Agents.AI.Workflows.Declarative" Version="1.0.0-rc1" />
+    <PackageReference Include="Microsoft.Agents.AI.Workflows.Declarative.AzureAI" Version="1.0.0-rc1" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.0" />
@@ -18,15 +18,9 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.0" />
-    <PackageReference Include="System.ClientModel" Version="1.8.0" />
+    <PackageReference Include="System.ClientModel" Version="1.8.1" />
     <PackageReference Include="System.Collections.Immutable" Version="10.0.0" />
   </ItemGroup>
-
-  <!-- <ItemGroup>
-    <ProjectReference Include="/Users/lokinfey/Desktop/agent-framework/dotnet/src/Microsoft.Agents.AI.Workflows/Microsoft.Agents.AI.Workflows.csproj" />
-    <ProjectReference Include="/Users/lokinfey/Desktop/agent-framework/dotnet/src/Microsoft.Agents.AI.Workflows.Declarative/Microsoft.Agents.AI.Workflows.Declarative.csproj" />
-    <ProjectReference Include="/Users/lokinfey/Desktop/agent-framework/dotnet/src/Microsoft.Agents.AI.Workflows.Declarative.AzureAI/Microsoft.Agents.AI.Workflows.Declarative.AzureAI.csproj" />
-  </ItemGroup> -->
 
 
 </Project>

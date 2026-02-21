@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.ClientModel;
 using OpenAI;
@@ -6,10 +6,8 @@ using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
 using Microsoft.Agents.AI.Workflows.Reflection;
-using DotNetEnv;
 
 // Load environment variables
-Env.Load("../../../../.env");
 
 var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
 var github_model_id = "gpt-4o";
@@ -43,13 +41,13 @@ var aggregationExecutor = new ConcurrentAggregationExecutor();
 // Build concurrent workflow with FanOut/FanIn pattern
 var workflow = new WorkflowBuilder(startExecutor)
             .AddFanOutEdge(startExecutor, targets: [researcherAgent, plannerAgent])
-            .AddFanInEdge(sources: [researcherAgent, plannerAgent], aggregationExecutor)
+            .AddFanInBarrierEdge(sources: [researcherAgent, plannerAgent], aggregationExecutor)
             .WithOutputFrom(aggregationExecutor)
             .Build();
 
 string messageData = "";
 // Execute workflow
-StreamingRun run = await InProcessExecution.StreamAsync(workflow, "Plan a trip to Seattle in December");
+await using StreamingRun run = await InProcessExecution.RunStreamingAsync(workflow, "Plan a trip to Seattle in December");
 await foreach (WorkflowEvent evt in run.WatchStreamAsync().ConfigureAwait(false))
 {
     if (evt is AgentResponseUpdateEvent executorComplete)

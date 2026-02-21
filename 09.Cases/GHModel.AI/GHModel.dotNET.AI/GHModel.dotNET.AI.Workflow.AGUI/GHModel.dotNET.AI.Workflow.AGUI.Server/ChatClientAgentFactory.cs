@@ -13,7 +13,6 @@ using Microsoft.Agents.AI.Workflows.Reflection;
 using Microsoft.Extensions.AI;
 using Microsoft.AspNetCore.HttpLogging;
 using OpenAI;
-using DotNetEnv;
 
 
 internal static class ChatClientAgentFactory
@@ -24,7 +23,6 @@ internal static class ChatClientAgentFactory
     public static void Initialize()
     {
 
-        Env.Load("../../../../../.env");
         string github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
         github_model_id =  Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? throw new InvalidOperationException("GITHUB_MODEL_ID is not set.");
         string github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
@@ -71,7 +69,7 @@ internal static class ChatClientAgentFactory
                     .Build();
 
 
-        AIAgent workflow_agent = workflow.AsAgent("travel-workflow","travel recommendation workflow");
+        AIAgent workflow_agent = workflow.AsAIAgent(id: "travel-workflow", name: "travel-workflow", description: "travel recommendation workflow");
 
         return workflow_agent;
     }

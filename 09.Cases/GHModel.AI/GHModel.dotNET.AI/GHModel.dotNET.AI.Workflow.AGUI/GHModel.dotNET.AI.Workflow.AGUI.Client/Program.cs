@@ -22,7 +22,7 @@ AIAgent agent = chatClient.AsAIAgent(
     name: "agui-travel-client",
     instructions: "You are a travel assistant.");
 
-AgentThread thread =await agent.GetNewThreadAsync();
+AgentSession session = await agent.CreateSessionAsync();
 List<ChatMessage> messages = [];
 
 try
@@ -50,7 +50,7 @@ try
         bool isFirstUpdate = true;
         string? threadId = null;
 
-        await foreach (var update in agent.RunStreamingAsync(messages, thread))
+        await foreach (var update in agent.RunStreamingAsync(messages, session))
         {
             ChatResponseUpdate chatUpdate = update.AsChatResponseUpdate();
 

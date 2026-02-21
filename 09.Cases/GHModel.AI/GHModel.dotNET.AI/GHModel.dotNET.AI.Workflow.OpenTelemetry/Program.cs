@@ -1,4 +1,4 @@
-﻿
+
 using System;
 using System.ComponentModel;
 using System.ClientModel;
@@ -19,7 +19,6 @@ using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
 using OpenAI;
-using DotNetEnv;
 
 
 #region Setup Telemetry
@@ -92,10 +91,6 @@ Console.WriteLine("""
     Type your message and press Enter. Type 'exit' or empty message to quit.
     """);
 
-
-
-Env.Load("../../../../.env");
-
 var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
 var github_model_id =  Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? throw new InvalidOperationException("GITHUB_MODEL_ID is not set.");
 var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
@@ -148,12 +143,12 @@ var workflow = new WorkflowBuilder(frontDeskAgent)
             .Build();
 
 
-var workflowAgentBuilder = new AIAgentBuilder(workflow.AsAgent("travel-workflow", "travel recommendation workflow"))
+var workflowAgentBuilder = new AIAgentBuilder(workflow.AsAIAgent(id: "travel-workflow", name: "travel-workflow", description: "travel recommendation workflow"))
     .UseOpenTelemetry(SourceName, configure: cfg => cfg.EnableSensitiveData = true);
 
 AIAgent workflow_agent = workflowAgentBuilder.Build(serviceProvider);
 
-var thread =  await workflow_agent.GetNewThreadAsync();
+AgentSession session = await workflow_agent.CreateSessionAsync();
 
 Console.WriteLine("\n💡 Before starting, run the VS Code command 'AI Toolkit: Open Trace Viewer (ai-mlstudio.tracing.open)' to capture traces in the AI Toolkit collector.\n");
 
@@ -172,14 +167,8 @@ while (true)
 
     using var interactionActivity = activitySource.StartActivity("workflow.interaction", ActivityKind.Client);
 
-    var threadMetadata = thread.GetService<AgentThreadMetadata>();
-    if (threadMetadata?.ConversationId is { } conversationId)
-    {
-        interactionActivity?.SetTag("conversation.id", conversationId);
-    }
-
     interactionActivity?.SetTag("workflow.agent.id", workflow_agent.Id);
-    interactionActivity?.SetTag("workflow.agent.name", workflow_agent.DisplayName);
+    interactionActivity?.SetTag("workflow.agent.name", workflow_agent.Name);
     interactionActivity?.SetTag("prompt.length", userInput.Length);
 
     var stopwatch = Stopwatch.StartNew();
@@ -188,7 +177,7 @@ while (true)
     {
         var response = await workflow_agent.RunAsync(
             new[] { new ChatMessage(ChatRole.User, userInput) },
-            thread,
+            session,
             cancellationToken: CancellationToken.None);
 
         stopwatch.Stop();

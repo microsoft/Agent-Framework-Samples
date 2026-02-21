@@ -1,14 +1,12 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.ClientModel;
 using OpenAI;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
-using DotNetEnv;
 
 // Load environment variables
-Env.Load("../../../../.env");
 
 var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
 var github_model_id = "gpt-4o";
@@ -78,7 +76,7 @@ ChatMessage userMessage = new ChatMessage(ChatRole.User, [
 ]);
 
 // Execute workflow
-StreamingRun run = await InProcessExecution.StreamAsync(workflow, userMessage);
+StreamingRun run = await InProcessExecution.RunStreamingAsync(workflow, userMessage);
 
 // Process streaming results
 await run.TrySendMessageAsync(new TurnToken(emitEvents: true));

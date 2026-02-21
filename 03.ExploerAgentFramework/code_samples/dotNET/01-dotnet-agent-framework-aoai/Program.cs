@@ -1,10 +1,7 @@
-﻿using Azure.AI.OpenAI;
+using Azure.AI.OpenAI;
 using Azure.Identity;
 using Microsoft.Agents.AI;
 using OpenAI.Chat;
-using DotNetEnv;
-
-Env.Load("/Users/lokinfey/Desktop/AOAI/Foundry/Agent-Framework-Samples/.env");
 
 var aoai_endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_ENDPOINT") ?? throw new InvalidOperationException("AZURE_OPENAI_ENDPOINT is not set.");
 var aoai_model_id = Environment.GetEnvironmentVariable("AZURE_OPENAI_RESPONSES_DEPLOYMENT_NAME") ?? "gpt-4.1-mini";

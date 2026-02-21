@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ClientModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -6,10 +6,8 @@ using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
 using OpenAI;
-using DotNetEnv;
 
 // Load environment variables from .env file
-Env.Load("../../../../.env");
 
 // Get GitHub Models configuration from environment variables
 var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") 
@@ -68,7 +66,7 @@ var workflow = new WorkflowBuilder(frontdeskAgent)
     .Build();
 
 // Start the streaming workflow execution
-StreamingRun run = await InProcessExecution.StreamAsync(workflow, new ChatMessage(ChatRole.User, "I would like to go to Paris."));
+await using StreamingRun run = await InProcessExecution.RunStreamingAsync(workflow, new ChatMessage(ChatRole.User, "I would like to go to Paris."));
 
 // Send message to start workflow
 await run.TrySendMessageAsync(new TurnToken(emitEvents: true));

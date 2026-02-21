@@ -1,13 +1,11 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.ClientModel;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using OpenAI;
-using DotNetEnv;
 
 // Load environment variables from .env file
-Env.Load("../../../../.env");
 
 // Get GitHub Models configuration from environment variables
 var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") 
