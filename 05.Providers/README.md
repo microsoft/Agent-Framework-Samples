@@ -177,3 +177,53 @@ For example, a "Travel Planner" agent could delegate tasks by calling a "Flight 
   * **Specialized Expertise:** A generalist agent can consult a specialist agent for deep knowledge in a specific area (e.g., a "General Support" agent calling a "Billing Expert" agent).
 
   * **Collaborative Problem-Solving:** Multiple agents can work together, sharing information and intermediate results to solve a problem that would be too complex for a single agent.
+
+### A2A Example
+
+#### .NET Example
+
+This sample demonstrates the A2A pattern using GitHub Models. A **ResearchAgent** specialist is wrapped as a callable tool for an **OrchestratorAgent**, which delegates research queries to it at runtime.
+
+The key mechanism is `AIFunctionFactory.Create`, which turns any .NET delegate — including another agent's `RunAsync` — into an `AIFunction` the model can invoke as a tool call.
+
+```csharp
+// Wrap ResearchAgent as a callable tool for another agent
+Func<string, Task<string>> researchFunc =
+    async (query) => (await researchAgent.RunAsync(query)).ToString();
+
+var researchTool = AIFunctionFactory.Create(
+    (Func<string, Task<string>>)researchFunc,
+    name: "ResearchTopic",
+    description: "Delegates a research query to the ResearchAgent specialist.");
+
+// OrchestratorAgent treats ResearchAgent as a provider
+AIAgent orchestratorAgent = chatClient.AsAIAgent(
+    name: "OrchestratorAgent",
+    instructions: "For every question, call ResearchTopic first, then compose a friendly answer.",
+    tools: [researchTool]);
+
+var answer = await orchestratorAgent.RunAsync("What should I know about visiting Tokyo?");
+Console.WriteLine(answer);
+```
+
+Full sample: [02-dotnet-agent-framework-ghmodel-a2a](./code_samples/dotNET/02-dotnet-agent-framework-ghmodel-a2a/)
+
+**Setup**
+
+```bash
+cd 05.Providers/code_samples/dotNET/02-dotnet-agent-framework-ghmodel-a2a
+
+dotnet user-secrets set "GITHUB_TOKEN"    "<your-github-token>"
+dotnet user-secrets set "GITHUB_ENDPOINT" "https://models.inference.ai.azure.com"
+dotnet user-secrets set "GITHUB_MODEL_ID" "gpt-4o-mini"
+```
+
+**Run**
+
+```bash
+dotnet run app.cs   # file-based
+# or
+dotnet run          # project-based
+```
+
+> **Compare with 07.Workflow:** In a Workflow, agents are wired into a fixed pipeline and messages pass through in sequence. In A2A, the orchestrator decides at runtime whether and when to call the specialist — it is a dynamic tool call, not a predetermined edge in a graph.

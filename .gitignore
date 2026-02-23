@@ -10,6 +10,8 @@
 *.userosscache
 *.sln.docstates
 *.env
+# Note: .NET user-secrets (dotnet user-secrets set ...) are stored outside the
+# repository in your OS user profile and are never committed to git.
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

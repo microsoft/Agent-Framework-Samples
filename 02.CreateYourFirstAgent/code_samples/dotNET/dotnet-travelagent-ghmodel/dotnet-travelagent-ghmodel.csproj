@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,18 +6,24 @@
     <RootNamespace>dotnet_travelagent_ghmodel</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <UserSecretsId>72ce6d02-83a5-4d22-8e78-1bd196957158</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotNetEnv" Version="3.1.1" />
-    <PackageReference Include="Microsoft.Extensions.AI" Version="10.2.0" />
-    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.2.0-preview.1.26063.2" />
+    <PackageReference Include="Microsoft.Extensions.AI" Version="10.3.0" />
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.3.0" />
     <PackageReference Include="OpenAI" Version="2.8.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="/Users/lokinfey/Desktop/AOAI/Foundry/agent-framework/dotnet/src/Microsoft.Agents.AI.OpenAI/Microsoft.Agents.AI.OpenAI.csproj" />
-    <ProjectReference Include="/Users/lokinfey/Desktop/AOAI/Foundry/agent-framework/dotnet/src/Microsoft.Agents.AI/Microsoft.Agents.AI.csproj" />
+    <PackageReference Include="Microsoft.Agents.AI" Version="1.0.0-rc1" />
+    <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.0.0-rc1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.0" />
   </ItemGroup>
 
-
+  <ItemGroup>
+    <Compile Remove="app.cs" />
+  </ItemGroup>
 </Project>

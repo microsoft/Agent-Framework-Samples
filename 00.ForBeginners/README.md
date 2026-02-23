@@ -13,35 +13,35 @@ Learn the foundational concepts of AI agents and get started with your first Mic
 
 **Code Samples:**
 - **Python:** [`python-agent-framework-travelagent.ipynb`](./01-intro-to-ai-agents/code_samples/python-agent-framework-travelagent.ipynb)
-- **.NET:** [`dotnet-agent-framework-travelagent.ipynb`](./01-intro-to-ai-agents/code_samples/dotnet-agent-framework-travelagent.ipynb)
+- **.NET:** [`dotnet-travelagent-ghmodel/`](../02.CreateYourFirstAgent/code_samples/dotNET/dotnet-travelagent-ghmodel/)
 
 ### 02. Explore Agentic Frameworks
 Dive deeper into the Microsoft Agent Framework architecture and understand different implementation patterns.
 
 **Code Samples:**
 - **Python:** [`python-agent-framework-basicagent.ipynb`](./02-explore-agentic-frameworks/code_samples/python-agent-framework-basicagent.ipynb)
-- **.NET:** [`dotnet-agent-framework-basicagent.ipynb`](./02-explore-agentic-frameworks/code_samples/dotnet-agent-framework-basicagent.ipynb)
+- **.NET:** [`02-dotnet-agent-framework-ghmodel/`](../03.ExploreAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/)
 
 ### 03. Agentic Design Patterns
 Explore common design patterns and best practices for building robust AI agents with GitHub Models integration.
 
 **Code Samples:**
 - **Python:** [`python-agent-framework-ghmodel-basicagent.ipynb`](./03-agentic-design-patterns/code_samples/python-agent-framework-ghmodel-basicagent.ipynb)
-- **.NET:** [`dotnet-agent-framework-ghmodel-basicagent.ipynb`](./03-agentic-design-patterns/code_samples/dotnet-agent-framework-ghmodel-basicagent.ipynb)
+- **.NET:** [`02-dotnet-agent-framework-ghmodel/`](../03.ExploreAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/)
 
 ### 04. Tool Use and Integration
 Learn how to enhance your agents with external tools and capabilities using GitHub Models.
 
 **Code Samples:**
 - **Python:** [`python-agent-framework-ghmodel-tools.ipynb`](./04-tool-use/code_samples/python-agent-framework-ghmodel-tools.ipynb)
-- **.NET:** [`dotnet-agent-framework-ghmodels-tool.ipynb`](./04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool.ipynb)
+- **.NET:** [`dotnet-agent-framework-ghmodels-tool/`](./04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool/)
 
 ### 05. Agentic RAG (Retrieval-Augmented Generation)
 Implement knowledge-enhanced agents using Azure AI Foundry's file search capabilities.
 
 **Code Samples:**
 - **Python:** [`python-agent-framework-aifoundry-file-search.ipynb`](./05-agentic-rag/code_samples/python-agent-framework-aifoundry-file-search.ipynb)
-- **.NET:** [`dotnet-agent-framework-aifoundry-file-search.ipynb`](./05-agentic-rag/code_samples/dotnet-agent-framework-aifoundry-file-search.ipynb)
+- **.NET:** [`dotnet-agent-framework-msfoundry-file-search/`](./05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/)
 
 **Supporting Files:**
 - [`document.md`](./05-agentic-rag/code_samples/document.md) - Sample document for RAG demonstrations
@@ -51,14 +51,14 @@ Explore advanced planning capabilities and design patterns with GitHub Models in
 
 **Code Samples:**
 - **Python:** [`python-agent-framrwork-ghmodel-planningdesign.ipynb`](./07-planning-design/code_samples/python-agent-framrwork-ghmodel-planningdesign.ipynb)
-- **.NET:** [`dotnet-agent-framrwork-ghmodel-planningdesign.ipynb`](./07-planning-design/code_samples/dotnet-agent-framrwork-ghmodel-planningdesign.ipynb)
+- **.NET:** [`dotnet-agent-framework-ghmodel-planningdesign`](./07-planning-design/code_samples/dotnet-agent-framework-ghmodel-planningdesign/)
 
 ### 08. Multi-Agent Systems
 Build collaborative multi-agent workflows using GitHub Models for complex problem-solving scenarios.
 
 **Code Samples:**
 - **Python:** [`python-agent-framework-ghmodel-workflow-multi-agents.ipynb`](./08-multi-agent/code_samples/python-agent-framework-ghmodel-workflow-multi-agents.ipynb)
-- **.NET:** [`dotnet-agent-framework-ghmodel-workflow-multi-agents.ipynb`](./08-multi-agent/code_samples/dotnet-agent-framework-ghmodel-workflow-multi-agents.ipynb)
+- **.NET:** [`01.dotnet-agent-framework-workflow-ghmodel-basic/`](../07.Workflow/code_samples/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic/)
 
 ### 09. Metacognition
 *Coming Soon* - Advanced metacognitive capabilities for self-aware agents.

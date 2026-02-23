@@ -6,7 +6,12 @@ using Microsoft.Extensions.AI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-string serverUrl = Environment.GetEnvironmentVariable("AGUI_SERVER_URL") ?? "http://localhost:5018";
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
+
+string serverUrl = config["AGUI_SERVER_URL"] ?? "http://localhost:5018";
 
 Console.WriteLine($"Connecting to AG-UI server at: {serverUrl}\n");
 
@@ -22,7 +27,7 @@ AIAgent agent = chatClient.AsAIAgent(
     name: "agui-travel-client",
     instructions: "You are a travel assistant.");
 
-AgentThread thread =await agent.GetNewThreadAsync();
+AgentSession session = await agent.CreateSessionAsync();
 List<ChatMessage> messages = [];
 
 try
@@ -50,7 +55,7 @@ try
         bool isFirstUpdate = true;
         string? threadId = null;
 
-        await foreach (var update in agent.RunStreamingAsync(messages, thread))
+        await foreach (var update in agent.RunStreamingAsync(messages, session))
         {
             ChatResponseUpdate chatUpdate = update.AsChatResponseUpdate();
 

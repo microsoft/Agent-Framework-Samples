@@ -1,4 +1,4 @@
-﻿using System.ClientModel;
+using System.ClientModel;
 using Azure.AI.Projects;
 using Azure.Identity;
 using Microsoft.Agents.AI;
@@ -6,13 +6,15 @@ using Microsoft.Extensions.AI;
 using OpenAI;
 using OpenAI.Files;
 using OpenAI.VectorStores;
-using DotNetEnv;
+using Microsoft.Extensions.Configuration;
 
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
 
-Env.Load("/Users/lokinfey/Desktop/AOAI/Foundry/Agent-Framework-Samples/.env");
-
-var endpoint = Environment.GetEnvironmentVariable("AZURE_AI_PROJECT_ENDPOINT") ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT is not set.");
-var deploymentName = Environment.GetEnvironmentVariable("AZURE_AI_MODEL_DEPLOYMENT_NAME") ?? "gpt-4o-mini";
+var endpoint = config["AZURE_AI_PROJECT_ENDPOINT"] ?? throw new InvalidOperationException("AZURE_AI_PROJECT_ENDPOINT is not set.");
+var deploymentName = config["AZURE_AI_MODEL_DEPLOYMENT_NAME"] ?? "gpt-4o-mini";
 
 // Create an AI Project client and get an OpenAI client that works with the foundry service.
 AIProjectClient aiProjectClient = new(

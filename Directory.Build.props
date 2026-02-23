@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <!-- Suppress expected experimental API warnings across all samples -->
+    <NoWarn>$(NoWarn);OPENAI001;MEAI001</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+</Project>

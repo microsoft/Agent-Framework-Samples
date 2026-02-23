@@ -12,8 +12,8 @@ using Microsoft.Agents.AI.Workflows;
 using Microsoft.Agents.AI.Workflows.Reflection;
 using Microsoft.Extensions.AI;
 using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.Extensions.Configuration;
 using OpenAI;
-using DotNetEnv;
 
 
 internal static class ChatClientAgentFactory
@@ -21,13 +21,12 @@ internal static class ChatClientAgentFactory
     private static OpenAIClient? _openAIClient;
     private static string? github_model_id;
 
-    public static void Initialize()
+    public static void Initialize(IConfiguration config)
     {
 
-        Env.Load("../../../../../.env");
-        string github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-        github_model_id =  Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? throw new InvalidOperationException("GITHUB_MODEL_ID is not set.");
-        string github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+        string github_endpoint = config["GITHUB_ENDPOINT"] ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set. Run: dotnet user-secrets set \"GITHUB_ENDPOINT\" \"<value>\"");
+        github_model_id = config["GITHUB_MODEL_ID"] ?? throw new InvalidOperationException("GITHUB_MODEL_ID is not set. Run: dotnet user-secrets set \"GITHUB_MODEL_ID\" \"<value>\"");
+        string github_token = config["GITHUB_TOKEN"] ?? throw new InvalidOperationException("GITHUB_TOKEN is not set. Run: dotnet user-secrets set \"GITHUB_TOKEN\" \"<value>\"");
 
 
         var openAIOptions = new OpenAIClientOptions()
@@ -71,7 +70,7 @@ internal static class ChatClientAgentFactory
                     .Build();
 
 
-        AIAgent workflow_agent = workflow.AsAgent("travel-workflow","travel recommendation workflow");
+        AIAgent workflow_agent = workflow.AsAIAgent(id: "travel-workflow", name: "travel-workflow", description: "travel recommendation workflow");
 
         return workflow_agent;
     }

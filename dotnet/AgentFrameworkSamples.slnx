@@ -1,0 +1,48 @@
+<Solution>
+  <Folder Name="/00.ForBeginners/">
+    <Project Path="../00.ForBeginners/04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool/dotnet-agent-framework-ghmodels-tool.csproj" />
+    <Project Path="../00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/dotnet-agent-framework-msfoundry-file-search.csproj" />
+    <Project Path="../00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framework-ghmodel-planningdesign/dotnet-agent-framework-ghmodel-planningdesign.csproj" />
+  </Folder>
+  <Folder Name="/01.AgentFoundation/">
+    <Project Path="../01.AgentFoundation/code_samples/dotNET/dotnet-agent-foundation/dotnet-agent-foundation.csproj" />
+  </Folder>
+  <Folder Name="/02.CreateYourFirstAgent/">
+    <Project Path="../02.CreateYourFirstAgent/code_samples/dotNET/dotnet-travelagent-ghmodel/dotnet-travelagent-ghmodel.csproj" />
+  </Folder>
+  <Folder Name="/03.ExploreAgentFramework/">
+    <Project Path="../03.ExploreAgentFramework/code_samples/dotNET/01-dotnet-agent-framework-aoai/01-dotnet-agent-framework-aoai.csproj" />
+    <Project Path="../03.ExploreAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/02-dotnet-agent-framework-ghmodel.csproj" />
+    <Project Path="../03.ExploreAgentFramework/code_samples/dotNET/03-dotnet-agent-framework-msfoundry/03-dotnet-agent-framework-msfoundry.csproj" />
+    <Project Path="../03.ExploreAgentFramework/code_samples/dotNET/04-dotnet-agent-framework-foundrylocal/04-dotnet-agent-framework-foundrylocal.csproj" />
+  </Folder>
+  <Folder Name="/04.Tools/">
+    <Project Path="../04.Tools/code_samples/dotNET/msfoundry/01-dotnet-agent-framework-msfoundry-vision/01-dotnet-agent-framework-msfoundry-vision.csproj" />
+    <Project Path="../04.Tools/code_samples/dotNET/msfoundry/02-dotnet-agent-framework-msfoundry-code-interpreter/02-dotnet-agent-framework-msfoundry-code-interpreter.csproj" />
+    <Project Path="../04.Tools/code_samples/dotNET/msfoundry/03-dotnet-agent-framework-msfoundry-binggrounding/03-dotnet-agent-framework-msfoundry-binggrounding.csproj" />
+    <Project Path="../04.Tools/code_samples/dotNET/msfoundry/04-dotnet-agent-framework-msfoundry-file-search/04-dotnet-agent-framework-msfoundry-file-search.csproj" />
+  </Folder>
+  <Folder Name="/05.Providers/">
+    <Project Path="../05.Providers/code_samples/dotNET/01-dotnet-agent-framework-aifoundry-mcp/AgentMCP.Console/AgentMCP.Console.csproj" />
+    <Project Path="../05.Providers/code_samples/dotNET/02-dotnet-agent-framework-ghmodel-a2a/02-dotnet-agent-framework-ghmodel-a2a.csproj" />
+  </Folder>
+  <Folder Name="/06.RAGs/">
+    <Project Path="../06.RAGs/code_samples/dotNET/dotnet-agent-framework-msfoundry-file-search/dotnet-agent-framework-msfoundry-file-search.csproj" />
+  </Folder>
+  <Folder Name="/07.Workflow/">
+    <Project Path="../07.Workflow/code_samples/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic/01.dotnet-agent-framework-workflow-ghmodel-basic.csproj" />
+    <Project Path="../07.Workflow/code_samples/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential/02.dotnet-agent-framework-workflow-ghmodel-sequential.csproj" />
+    <Project Path="../07.Workflow/code_samples/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent/03.dotnet-agent-framework-workflow-ghmodel-concurrent.csproj" />
+    <Project Path="../07.Workflow/code_samples/dotNET/04.dotnet-agent-framework-workflow-msfoundry-condition/04.dotnet-agent-framework-workflow-msfoundry-condition.csproj" />
+  </Folder>
+  <Folder Name="/08.EvaluationAndTracing/">
+    <Project Path="../08.EvaluationAndTracing/dotNET/GHModel.dotNET.AI.Workflow.DevUI/GHModel.dotNET.AI.Workflow.DevUI.csproj" />
+  </Folder>
+  <Folder Name="/09.Cases/">
+    <Project Path="../09.Cases/MicrosoftFoundryWithAITKAndMAF/CreateWorkflowWithYAML/CreateWorkflowWithYAML.csproj" />
+    <Project Path="../09.Cases/GHModel.AI/GHModel.dotNET.AI/GHModel.dotNET.AI.Workflow.DevUI/GHModel.dotNET.AI.Workflow.DevUI.csproj" />
+    <Project Path="../09.Cases/GHModel.AI/GHModel.dotNET.AI/GHModel.dotNET.AI.Workflow.OpenTelemetry/GHModel.dotNET.AI.Workflow.OpenTelemetry.csproj" />
+    <Project Path="../09.Cases/GHModel.AI/GHModel.dotNET.AI/GHModel.dotNET.AI.Workflow.AGUI/GHModel.dotNET.AI.Workflow.AGUI.Server/GHModel.dotNET.AI.Workflow.AGUI.Server.csproj" />
+    <Project Path="../09.Cases/GHModel.AI/GHModel.dotNET.AI/GHModel.dotNET.AI.Workflow.AGUI/GHModel.dotNET.AI.Workflow.AGUI.Client/GHModel.dotNET.AI.Workflow.AGUI.Client.csproj" />
+  </Folder>
+</Solution>

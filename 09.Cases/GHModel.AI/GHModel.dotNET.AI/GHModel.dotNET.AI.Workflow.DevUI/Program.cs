@@ -1,18 +1,8 @@
 
-// using System.ComponentModel;
-// using Azure.AI.OpenAI;
-// using Azure.Identity;
-// using Microsoft.Agents.AI;
-// using Microsoft.Agents.AI.DevUI;
-// using Microsoft.Agents.AI.Hosting;
-// using Microsoft.Agents.AI.Workflows;
-// using Microsoft.Extensions.AI;
-
 using System;
 using System.ComponentModel;
 using System.ClientModel;
 using Azure.Identity;   
-using DotNetEnv;
 using OpenAI;
 
 using Microsoft.Agents.AI;
@@ -52,15 +42,12 @@ internal static class Program
     /// <param name="args">Command line arguments.</param>
     private static void Main(string[] args)
     {
-        // Load environment variables from .env file
-        Env.Load("../../../../.env");
-
         var builder = WebApplication.CreateBuilder(args);
 
         // Set up the Azure OpenAI client
-        var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
+        var github_endpoint = builder.Configuration["GITHUB_ENDPOINT"] ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set. Run: dotnet user-secrets set \"GITHUB_ENDPOINT\" \"<value>\"");
         var github_model_id =  "openai/gpt-5";
-        var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+        var github_token = builder.Configuration["GITHUB_TOKEN"] ?? throw new InvalidOperationException("GITHUB_TOKEN is not set. Run: dotnet user-secrets set \"GITHUB_TOKEN\" \"<value>\"");
 
         var openAIOptions = new OpenAIClientOptions()
         {

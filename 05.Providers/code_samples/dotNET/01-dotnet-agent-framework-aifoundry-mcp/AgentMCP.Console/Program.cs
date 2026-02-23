@@ -1,4 +1,4 @@
-﻿#pragma warning disable MEAI001 // Type is for evaluation purposes only and is subject to change or removal in future updates
+#pragma warning disable MEAI001 // Type is for evaluation purposes only and is subject to change or removal in future updates
 
 using System;
 using System.Linq;
@@ -7,13 +7,15 @@ using Azure.AI.Agents.Persistent;
 using Azure.Identity;
 using Microsoft.Agents.AI;
 using Microsoft.Extensions.AI;
+using Microsoft.Extensions.Configuration;
 
-using DotNetEnv;
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
 
-Env.Load("../../../../../.env");
-
-var azure_foundry_endpoint = Environment.GetEnvironmentVariable("AZURE_AI_PROJECT_ENDPOINT") ?? throw new InvalidOperationException("AZURE_FOUNDRY_PROJECT_ENDPOINT is not set.");
-var azure_foundry_model_id = Environment.GetEnvironmentVariable("AZURE_AI_MODEL_DEPLOYMENT_NAME") ?? "gpt-4.1-mini";
+var azure_foundry_endpoint = config["AZURE_AI_PROJECT_ENDPOINT"] ?? throw new InvalidOperationException("AZURE_FOUNDRY_PROJECT_ENDPOINT is not set.");
+var azure_foundry_model_id = config["AZURE_AI_MODEL_DEPLOYMENT_NAME"] ?? "gpt-4.1-mini";
 
 
 var persistentAgentsClient = new PersistentAgentsClient(azure_foundry_endpoint, new AzureCliCredential());
@@ -42,7 +44,7 @@ AIAgent agentWithRequiredApproval = await persistentAgentsClient.CreateAIAgentAs
 // var threadWithRequiredApproval = await agentWithRequiredApproval.GetNewThreadAsync();
 var sessionWithRequiredApproval = await agentWithRequiredApproval.CreateSessionAsync();
 var response = await agentWithRequiredApproval.RunAsync("Please summarize the Azure AI Agent documentation related to MCP Tool calling?", sessionWithRequiredApproval);
-var userInputRequests = response.UserInputRequests.ToList();
+var userInputRequests = response.Messages.SelectMany(m => m.Contents).OfType<McpServerToolApprovalRequestContent>().ToList();
 
 while (userInputRequests.Count > 0)
 {
@@ -65,7 +67,7 @@ while (userInputRequests.Count > 0)
     // Pass the user input responses back to the agent for further processing.
     response = await agentWithRequiredApproval.RunAsync(userInputResponses, sessionWithRequiredApproval);
 
-    userInputRequests = response.UserInputRequests.ToList();
+    userInputRequests = response.Messages.SelectMany(m => m.Contents).OfType<McpServerToolApprovalRequestContent>().ToList();
 }
 
 Console.WriteLine($"\nAgent: {response}");

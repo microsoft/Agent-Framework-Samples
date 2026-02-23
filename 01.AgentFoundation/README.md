@@ -39,4 +39,37 @@ This framework is the spiritual successor and consolidation of learnings from pi
 
 The Microsoft Agent Framework is designed to be the foundational layer for the next generation of intelligent, autonomous systems, making agent development more accessible and powerful than ever before.
 
+## Code Samples
+
+### .NET
+
+| Sample | Description |
+|--------|-------------|
+| [dotnet-agent-foundation](./code_samples/dotNET/dotnet-agent-foundation/) | Annotated "anatomy of an agent" walkthrough covering all four building blocks: `IChatClient`, `AIAgent`, Tools, and `AgentSession` (multi-turn). Backed by GitHub Models. |
+
+#### Prerequisites
+
+- .NET 10 SDK
+- [GitHub Personal Access Token](https://github.com/settings/tokens) with no special scopes (for GitHub Models)
+
+#### Setup
+
+```bash
+cd 01.AgentFoundation/code_samples/dotNET/dotnet-agent-foundation
+
+dotnet user-secrets set "GITHUB_TOKEN" "<your-github-token>"
+dotnet user-secrets set "GITHUB_ENDPOINT" "https://models.inference.ai.azure.com"
+dotnet user-secrets set "GITHUB_MODEL_ID" "gpt-4o-mini"
+```
+
+#### Run
+
+```bash
+# Option 1 — file-based (no project required):
+dotnet run app.cs
+
+# Option 2 — project-based:
+dotnet run
+```
+
 

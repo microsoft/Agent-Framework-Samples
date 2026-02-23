@@ -18,24 +18,24 @@ This repository provides step-by-step tutorials and real-world examples covering
 
 ## 📁 Repository Structure
 
-| Directory | Description | .NET Code Samples | Python Code Samples |
+| Directory | Description | .NET Code Samples ✅ | Python Code Samples |
 |-----------|-------------|-------------------|---------------------|
-| **[00.ForBeginners](./00.ForBeginners/README.md)** | **Beginner-friendly Microsoft Agent Framework examples extending [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)** | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/dotnet-agent-framework-travelagent/)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/dotnet-agent-framework-basicagent/)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/dotnet-agent-framework-basicagent/)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool/)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framrwork-ghmodel-planningdesign/)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/dotnet-agent-framework-ghmodel-workflow-multi-agents/) | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/python-agent-framework-travelagent.ipynb)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/python-agent-framework-basicagent.ipynb)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/python-agent-framework-ghmodel-basicagent.ipynb)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/python-agent-framework-ghmodel-tools.ipynb)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/python-agent-framework-msfoundry-file-search.ipynb)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/python-agent-framrwork-ghmodel-planningdesign.ipynb)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/python-agent-framework-ghmodel-workflow-multi-agents.ipynb) |
-| **[01.AgentFoundation](./01.AgentFoundation/README.md)** | Core concepts and architecture of Microsoft Agent Framework | *Documentation Only* | *Documentation Only* |
+| **[00.ForBeginners](./00.ForBeginners/README.md)** | **Beginner-friendly Microsoft Agent Framework examples extending [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners)** | [Travel Agent](./02.CreateYourFirstAgent/code_samples/dotNET/dotnet-travelagent-ghmodel/)<br/>[Basic Agent](./03.ExploreAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/dotnet-agent-framework-ghmodels-tool/)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/dotnet-agent-framework-msfoundry-file-search/)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/dotnet-agent-framework-ghmodel-planningdesign/)<br/>[Multi-Agent](./07.Workflow/code_samples/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic/) | [Travel Agent](./00.ForBeginners/01-intro-to-ai-agents/code_samples/python-agent-framework-travelagent.ipynb)<br/>[Basic Agent](./00.ForBeginners/02-explore-agentic-frameworks/code_samples/python-agent-framework-basicagent.ipynb)<br/>[Design Patterns](./00.ForBeginners/03-agentic-design-patterns/code_samples/python-agent-framework-ghmodel-basicagent.ipynb)<br/>[Tool Use](./00.ForBeginners/04-tool-use/code_samples/python-agent-framework-ghmodel-tools.ipynb)<br/>[RAG Search](./00.ForBeginners/05-agentic-rag/code_samples/python-agent-framework-msfoundry-file-search.ipynb)<br/>[Planning](./00.ForBeginners/07-planning-design/code_samples/python-agent-framrwork-ghmodel-planningdesign.ipynb)<br/>[Multi-Agent](./00.ForBeginners/08-multi-agent/code_samples/python-agent-framework-ghmodel-workflow-multi-agents.ipynb) |
+| **[01.AgentFoundation](./01.AgentFoundation/README.md)** | Core concepts and architecture of Microsoft Agent Framework | [Agent Foundation (.NET)](./01.AgentFoundation/code_samples/dotNET/dotnet-agent-foundation/) | *Coming Soon* |
 | **[02.CreateYourFirstAgent](./02.CreateYourFirstAgent/README.md)** | Build your first travel planning agent from scratch | [Travel Agent with GitHub Models](./02.CreateYourFirstAgent/code_samples/dotNET/dotnet-travelagent-ghmodel/) | [Travel Agent with GitHub Models](./02.CreateYourFirstAgent/code_samples/python/python-travelagent-ghmodel.ipynb) |
-| **[03.ExploreAgentFramework](./03.ExploerAgentFramework/README.md)** | Deep dive into different providers and configurations | [Azure OpenAI](./03.ExploerAgentFramework/code_samples/dotNET/01-dotnet-agent-framework-aoai/)<br/>[GitHub Models](./03.ExploerAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/)<br/>[MS Foundry](./03.ExploerAgentFramework/code_samples/dotNET/03-dotnet-agent-framework-msfoundry/)<br/>[Foundry Local](./03.ExploerAgentFramework/code_samples/dotNET/04-dotnet-agent-framework-foundrylocal/) | [Azure OpenAI](./03.ExploerAgentFramework/code_samples/python/01-python-agent-framework-aoai.ipynb)<br/>[GitHub Models](./03.ExploerAgentFramework/code_samples/python/02-python-agent-framrwork-ghmodel.ipynb)<br/>[MS Foundry](./03.ExploerAgentFramework/code_samples/python/03-python-agent-framework-msfoundry.ipynb)<br/>[Foundry Local](./03.ExploerAgentFramework/code_samples/python/04-python-agent-framrwork-foundrylocal.ipynb) |
+| **[03.ExploreAgentFramework](./03.ExploreAgentFramework/README.md)** | Deep dive into different providers and configurations | [Azure OpenAI](./03.ExploreAgentFramework/code_samples/dotNET/01-dotnet-agent-framework-aoai/)<br/>[GitHub Models](./03.ExploreAgentFramework/code_samples/dotNET/02-dotnet-agent-framework-ghmodel/)<br/>[MS Foundry](./03.ExploreAgentFramework/code_samples/dotNET/03-dotnet-agent-framework-msfoundry/)<br/>[Foundry Local](./03.ExploreAgentFramework/code_samples/dotNET/04-dotnet-agent-framework-foundrylocal/) | [Azure OpenAI](./03.ExploreAgentFramework/code_samples/python/01-python-agent-framework-aoai.ipynb)<br/>[GitHub Models](./03.ExploreAgentFramework/code_samples/python/02-python-agent-framrwork-ghmodel.ipynb)<br/>[MS Foundry](./03.ExploreAgentFramework/code_samples/python/03-python-agent-framework-msfoundry.ipynb)<br/>[Foundry Local](./03.ExploreAgentFramework/code_samples/python/04-python-agent-framrwork-foundrylocal.ipynb) |
 | **[04.Tools](./04.Tools/README.md)** | Vision, code interpretation, and custom tool integration | [Vision](./04.Tools/code_samples/dotNET/msfoundry/01-dotnet-agent-framework-msfoundry-vision/)<br/>[Code Interpreter](./04.Tools/code_samples/dotNET/msfoundry/02-dotnet-agent-framework-msfoundry-code-interpreter/)<br/>[Bing Grounding](./04.Tools/code_samples/dotNET/msfoundry/03-dotnet-agent-framework-msfoundry-binggrounding/)<br/>[File Search](./04.Tools/code_samples/dotNET/msfoundry/04-dotnet-agent-framework-msfoundry-file-search/) | [Vision](./04.Tools/code_samples/python/msfoundry/01.python-agent-framework-msfoundry-vision.ipynb)<br/>[Code Interpreter](./04.Tools/code_samples/python/msfoundry/02.python-agent-framework-msfoundry-code-interpreter.ipynb)<br/>[Bing Grounding](./04.Tools/code_samples/python/msfoundry/03.python-agent-framework-msfoundry-binggrounding.ipynb)<br/>[File Search](./04.Tools/code_samples/python/msfoundry/04.python-agent-framework-msfoundry-file-search.ipynb) |
 | **[05.Providers](./05.Providers/README.md)** | MCP (Model Context Protocol) and Agent-to-Agent communication | [MCP with Microsoft Learn](./05.Providers/code_samples/dotNET/01-dotnet-agent-framework-aifoundry-mcp/AgentMCP.Console/)| [MCP with Microsoft Learn](./05.Providers/code_samples/python/01-python-agent-framework-aifoundry-mcp.ipynb) |
 | **[06.RAGs](./06.RAGs/README.md)** | Knowledge-enhanced agents with file search capabilities | [File Search RAG](./06.RAGs/code_samples/dotNET/dotnet-agent-framework-msfoundry-file-search/) | [File Search RAG](./06.RAGs/code_samples/python/python-agent-framework-msfoundry-file-search.ipynb) |
 | **[07.Workflow](./07.Workflow/README.md)** | Complex agent workflows and orchestration patterns | [Basic Workflow](./07.Workflow/code_samples/dotNET/01.dotnet-agent-framework-workflow-ghmodel-basic/)<br/>[Sequential](./07.Workflow/code_samples/dotNET/02.dotnet-agent-framework-workflow-ghmodel-sequential/)<br/>[Concurrent](./07.Workflow/code_samples/dotNET/03.dotnet-agent-framework-workflow-ghmodel-concurrent/)<br/>[Conditional(MS Foundry)](./07.Workflow/code_samples/dotNET/04.dotnet-agent-framework-workflow-msfoundry-condition/) | [Basic Workflow](./07.Workflow/code_samples/python/01.python-agent-framework-workflow-ghmodel-basic.ipynb)<br/>[Sequential](./07.Workflow/code_samples/python/02.python-agent-framework-workflow-ghmodel-sequential.ipynb)<br/>[Concurrent](./07.Workflow/code_samples/python/03.python-agent-framework-workflow-ghmodel-concurrent.ipynb)<br/>[Conditional(MS Foundry)](./07.Workflow/code_samples/python/04.python-agent-framework-workflow-aifoundry-condition.ipynb) |
-| **[08.EvaluationAndTracing](./08.EvaluationAndTracing/README.md)** | Agent evaluation, debugging, and observability tools | [GitHub Models Workflow DevUI](./08.EvaluationAndTracing/dotNET/GHModel.dotNET.AI.Workflow.DevUI/) | [Single MS Foundry Agent DevUI](./08.EvaluationAndTracing/python/singe_msfoundry_agent_devui/)<br/>[Multi-Agent GitHub Models DevUI](./08.EvaluationAndTracing/python/multi_workflow_ghmodel_devui/)<br/>[Multi-Agent MS Foundry DevUI](./08.EvaluationAndTracing/python/multi_workflow_msfoundry_devui/)<br/>[Multi-Agent Foundry Local DevUI](./08.EvaluationAndTracing/python/multi_workflow_foundrylocal_devui/)<br/> |
+| **[08.EvaluationAndTracing](./08.EvaluationAndTracing/README.md)** | Agent evaluation, debugging, and observability tools | [GitHub Models Workflow DevUI](./08.EvaluationAndTracing/dotNET/GHModel.dotNET.AI.Workflow.DevUI/)<br/>[OpenTelemetry Tracing](./09.Cases/GHModel.AI/GHModel.dotNET.AI/GHModel.dotNET.AI.Workflow.OpenTelemetry/) | [Single MS Foundry Agent DevUI](./08.EvaluationAndTracing/python/singe_msfoundry_agent_devui/)<br/>[Multi-Agent GitHub Models DevUI](./08.EvaluationAndTracing/python/multi_workflow_ghmodel_devui/)<br/>[Multi-Agent MS Foundry DevUI](./08.EvaluationAndTracing/python/multi_workflow_msfoundry_devui/)<br/>[Multi-Agent Foundry Local DevUI](./08.EvaluationAndTracing/python/multi_workflow_foundrylocal_devui/)<br/> |
 | **[09.Cases](./09.Cases/README.md)** | Real-world case studies combining Foundry workflows with production-ready multi-agent applications | [Microsoft Foundry with AITK & MAF](./09.Cases/MicrosoftFoundryWithAITKAndMAF/README.md)<br/>[GHModel Multi-Agent (.NET)](./09.Cases/GHModel.AI/GHModel.dotNET.AI/) | [Microsoft Foundry with AITK & MAF](./09.Cases/MicrosoftFoundryWithAITKAndMAF/README.md)<br/>[GHModel Multi-Agent (Python)](./09.Cases/GHModel.AI/GHModel.Python.AI/)<br/>[Agentic Marketing Content Generation](./09.Cases/AgenticMarketingContentGen/README.md)<br/>[Foundry Local Pipeline](./09.Cases/FoundryLocalPipeline/README.md) |
 
 ## 🛠 Prerequisites
 
 ***Note: This is installation guideline***
 
-> ⚠️ **Important Notice**: Microsoft Agent Framework is currently in the **development/preview stage**. Since the framework APIs and features may change frequently, **we strongly recommend building from source** rather than using NuGet packages to ensure you have the latest updates and bug fixes.
+> ⚠️ **Important Notice**: Microsoft Agent Framework is currently in the **development/preview stage**. The framework APIs and features may change between releases.
 
 > 📌 **Additional Notes**: 
 > 1. The examples in this repository are primarily based on **GitHub Models** and **Microsoft Foundry**. You can access GitHub Models directly at https://gh.io/models
@@ -58,17 +58,12 @@ pip install -e .
 ```
 
 ### .NET Environment
-- .NET 9.0 or higher
-- Visual Studio 2022 or VS Code with C# extension
+- .NET 10 SDK ([download](https://dotnet.microsoft.com/download/dotnet/10.0))
+- VS Code with C# extension, or Visual Studio 2022 17.14+
 
-**Build from Source (Recommended):**
+All .NET samples use NuGet packages and run with `dotnet run` from the project folder. No local source build is required.
 
-```bash
-git clone https://github.com/microsoft/agent-framework.git
-cd agent-framework/dotnet && dotnet build agent-framework-dotnet.slnx
-```
-
-After building, reference the local project in your notebooks or applications instead of NuGet packages. This ensures compatibility with the latest framework changes.
+Configure secrets for each sample with `dotnet user-secrets` — see each sample's `README.md` for the exact commands.
 
 
 ## 💻 Platform-Specific Setup
@@ -98,7 +93,7 @@ $env:OPENSSL_STATIC="1"
 
 ## 🚀 Quick Start
 
-### Environment Setup
+### Python — Environment Setup
 
 Create a `.env` file in the root directory with your configurations:
 
@@ -122,6 +117,20 @@ BING_CONNECTION_ID="Your Bing Connection ID"
 BING_CONNECTION_NAME="Your Bing Connection Name"
 
 OTEL_EXPORTER_OTLP_ENDPOINT="Your OpenTelemetry Collector Endpoint e.g. http://localhost:4317"
+```
+
+### .NET — Environment Setup
+
+.NET samples use `dotnet user-secrets` for local credential management — credentials are stored securely in your OS user profile, never in the repository.
+
+Each sample's `README.md` lists the exact `dotnet user-secrets set` commands. For example:
+
+```bash
+cd <sample-folder>
+dotnet user-secrets set "GITHUB_TOKEN" "your-token-here"
+dotnet user-secrets set "ENDPOINT" "https://models.inference.ai.azure.com"
+dotnet user-secrets set "MODEL" "gpt-4o-mini"
+dotnet run
 ```
 
 

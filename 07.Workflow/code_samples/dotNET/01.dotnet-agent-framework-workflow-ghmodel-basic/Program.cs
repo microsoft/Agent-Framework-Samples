@@ -1,19 +1,23 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.ClientModel;
 using OpenAI;
 using Microsoft.Extensions.AI;
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.Workflows;
-using DotNetEnv;
+using Microsoft.Extensions.Configuration;
 
 // Load environment variables
-Env.Load("../../../../.env");
 
 // Get GitHub configuration
-var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-var github_model_id = Environment.GetEnvironmentVariable("GITHUB_MODEL_ID") ?? "gpt-4o-mini";
-var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
+
+var github_endpoint = config["GITHUB_ENDPOINT"] ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
+var github_model_id = config["GITHUB_MODEL_ID"] ?? "gpt-4o-mini";
+var github_token = config["GITHUB_TOKEN"] ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
 
 // Configure OpenAI client
 var openAIOptions = new OpenAIClientOptions()
@@ -59,7 +63,7 @@ ChatMessage userMessage = new ChatMessage(ChatRole.User, [
 ]);
 
 // Execute workflow
-StreamingRun run = await InProcessExecution.StreamAsync(workflow, userMessage);
+await using StreamingRun run = await InProcessExecution.RunStreamingAsync(workflow, userMessage);
 
 // Process workflow events
 await run.TrySendMessageAsync(new TurnToken(emitEvents: true));
