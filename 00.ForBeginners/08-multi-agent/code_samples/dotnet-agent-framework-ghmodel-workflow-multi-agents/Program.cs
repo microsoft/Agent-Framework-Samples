@@ -68,7 +68,7 @@ var workflow = new WorkflowBuilder(frontdeskAgent)
     .Build();
 
 // Start the streaming workflow execution
-StreamingRun run = await InProcessExecution.StreamAsync(workflow, new ChatMessage(ChatRole.User, "I would like to go to Paris."));
+StreamingRun run = await InProcessExecution.RunStreamingAsync(workflow, new ChatMessage(ChatRole.User, "I would like to go to Paris."));
 
 // Send message to start workflow
 await run.TrySendMessageAsync(new TurnToken(emitEvents: true));
