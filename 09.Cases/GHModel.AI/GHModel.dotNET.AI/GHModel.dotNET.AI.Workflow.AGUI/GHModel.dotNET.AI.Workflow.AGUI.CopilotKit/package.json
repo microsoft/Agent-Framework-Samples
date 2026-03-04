@@ -16,7 +16,7 @@
     "@ag-ui/proto": "0.0.40",
     "@copilotkit/react-core": "^1.10.6",
     "@copilotkit/react-ui": "^1.10.6",
-    "@copilotkit/runtime": "^1.10.6",
+    "@copilotkit/runtime": "^1.52.1",
     "next": "16.1.5",
     "react": "19.2.0",
     "react-dom": "19.2.0"
