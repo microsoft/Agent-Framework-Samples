@@ -16,3 +16,7 @@ This narrative documents moving from concept to code through Microsoft Foundry a
 
 ## [maf_harness_managed_agent](./maf_harness_managed_agent/README.md)
 This project implements Anthropic's managed-agent pattern (“decoupling the brain from the hands”) with Microsoft Agent Framework and Microsoft Foundry. It separates a stateless `AgentHarness` (brain), durable append-only `SessionLog` (memory), and on-demand sandbox execution layer (hands), then demonstrates recovery after harness crashes via `wake(session_id)` and parallel orchestration with many-brains-many-hands workflows. The sample also includes Azure Functions/FastAPI hosting endpoints (`/sessions`, `/run`, `/events`, `/wake`, `/health`) and production-oriented extension points for replacing in-memory components with Azure services such as Cosmos DB, Blob Storage, Key Vault, and Azure Monitor.
+
+## [maf_harness_managed_hosted_agent](./maf_harness_managed_hosted_agent/README.md)
+This sample shows how to build a Microsoft Foundry Hosted Agent with Microsoft Agent Framework and the Azure AI AgentServer SDK. It adapts the managed-agent harness pattern into a hosted deployment flow with separate layers for the agent brain, sandboxed hands, durable session log, and credential vault.
+Use this sample to explore hosted-agent deployment with `azd`/`ai agent`, OpenAI Responses-compatible endpoints, sandboxed tool execution, durable JSONL session recovery, and production-oriented boundaries for credentials and external execution.
