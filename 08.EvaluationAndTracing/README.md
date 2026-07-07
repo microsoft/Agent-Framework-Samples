@@ -6,12 +6,31 @@ Of course. Here is a tutorial based on the content of the file.
 
 This tutorial will guide you through the tools available for evaluating, tracing, and debugging your agents within the Microsoft Agent Framework. A key part of developing robust AI agents is understanding their behavior, and these tools provide the necessary insights.
 
-We will cover two main components:
+We will cover three main components:
 
-1.  **DevUI**: A web-based user interface for real-time visualization and debugging of agent sessions.
-2.  **Observability**: How to configure logging to trace the step-by-step execution of your agents.
+1.  **Evaluation**: LLM-as-Judge evaluation pipeline with rubric-based scoring across multiple dimensions.
+2.  **DevUI**: A web-based user interface for real-time visualization and debugging of agent sessions.
+3.  **Observability**: How to configure logging to trace the step-by-step execution of your agents.
 
-## 1. DevUI: Visualizing Agent Interactions
+## 1. Evaluation: LLM-as-Judge Scoring
+
+The LLM-as-Judge evaluation pipeline provides a systematic way to assess agent response quality using specialized evaluator agents. Each judge agent scores responses against a specific dimension using a 1-5 rubric.
+
+### What You Can Evaluate:
+* **Correctness**: Factual accuracy of agent responses
+* **Completeness**: How thoroughly the agent addresses the question
+* **Clarity**: Quality of writing, structure, and readability
+* **Safety**: Detection of harmful content and appropriate refusals
+
+### How it Works:
+A test dataset of questions is run through the agent under test. Then, four specialized judge agents score each response in parallel (via `asyncio.gather`). Scores are aggregated into a report with per-judge averages, per-category breakdowns, and pass/fail status.
+
+For the full evaluation sample, see:
+[llm_judge_evaluation](./python/llm_judge_evaluation/)
+
+---
+
+## 2. DevUI: Visualizing Agent Interactions
 
 The DevUI is a powerful web-based tool designed to give you a clear, real-time view into your agent's inner workings. It helps you visualize the entire interaction flow, from the initial prompt to the final response, including the agent's thought process and any tools it utilizes.
 
@@ -25,6 +44,8 @@ To use the DevUI, you typically run a command provided by the agent framework's 
 
 Sample Code:
 
+- llm_judge_evaluation : [llm_judge_evaluation](./python/llm_judge_evaluation/)
+
 - basic_agent_Workflow : [basic_agent_workflow_devui](./python/basic_agent_workflow_devui/)
 
 - multi_workflow_ghmodel_devui : [multi_workflow_ghmodel_devui](./python/multi_workflow_ghmodel_devui/)
@@ -32,7 +53,7 @@ Sample Code:
 For more detailed information and setup instructions, please visit the official DevUI package page:
 [https://github.com/microsoft/agent-framework/tree/main/python/packages/devui](https://github.com/microsoft/agent-framework/tree/main/python/packages/devui)
 
-## 2. Observability: Logging and Tracing Agent Execution
+## 3. Observability: Logging and Tracing Agent Execution
 
 While the DevUI is excellent for real-time visual debugging, observability through logging provides a persistent and detailed text-based record of an agent's execution. The framework is built to integrate with standard Python logging, making it easy to capture the data you need for analysis.
 
