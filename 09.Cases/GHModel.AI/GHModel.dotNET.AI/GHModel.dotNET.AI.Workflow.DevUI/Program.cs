@@ -1,27 +1,13 @@
 
-// using System.ComponentModel;
-// using Azure.AI.OpenAI;
-// using Azure.Identity;
-// using Microsoft.Agents.AI;
-// using Microsoft.Agents.AI.DevUI;
-// using Microsoft.Agents.AI.Hosting;
-// using Microsoft.Agents.AI.Workflows;
-// using Microsoft.Extensions.AI;
-
 using System;
-using System.ComponentModel;
 using System.ClientModel;
-using Azure.Identity;   
 using DotNetEnv;
 using OpenAI;
-
 using Microsoft.Agents.AI;
 using Microsoft.Agents.AI.DevUI;
 using Microsoft.Agents.AI.Hosting;
 using Microsoft.Agents.AI.Workflows;
-using Microsoft.Agents.AI.Workflows.Reflection;
 using Microsoft.Extensions.AI;
-
 
 namespace GHModel.dotNET.AI.Workflow.DevUI;
 
@@ -53,26 +39,27 @@ internal static class Program
     private static void Main(string[] args)
     {
         // Load environment variables from .env file
-        Env.Load("../../../../.env");
+        Env.Load("../../.env");
 
         var builder = WebApplication.CreateBuilder(args);
 
-        // Set up the Azure OpenAI client
-        var github_endpoint = Environment.GetEnvironmentVariable("GITHUB_ENDPOINT") ?? throw new InvalidOperationException("GITHUB_ENDPOINT is not set.");
-        var github_model_id =  "openai/gpt-5";
-        var github_token = Environment.GetEnvironmentVariable("GITHUB_TOKEN") ?? throw new InvalidOperationException("GITHUB_TOKEN is not set.");
+        var githubEndpoint = GetRequiredEnvironmentVariable("GITHUB_ENDPOINT");
+        var githubModelId = GetRequiredEnvironmentVariable("GITHUB_MODEL_ID");
+        var githubToken = GetRequiredEnvironmentVariable("GITHUB_TOKEN");
 
         var openAIOptions = new OpenAIClientOptions()
         {
-            Endpoint = new Uri(github_endpoint)
+            Endpoint = new Uri(githubEndpoint)
         };
-        
-        var openAIClient = new OpenAIClient(new ApiKeyCredential(github_token), openAIOptions);
 
-        var chatClient = openAIClient.GetChatClient(github_model_id).AsIChatClient();
-
+        var openAIClient = new OpenAIClient(new ApiKeyCredential(githubToken), openAIOptions);
+        var chatClient = openAIClient.GetChatClient(githubModelId).AsIChatClient();
 
         builder.Services.AddChatClient(chatClient);
+        if (builder.Environment.IsDevelopment())
+        {
+            builder.Services.AddDevUI();
+        }
 
         // Register sample agents with tools
         builder.AddAIAgent("GPTAssistant", "You are a helpful assistant. Answer questions concisely and accurately.");
@@ -101,7 +88,8 @@ internal static class Program
 
         builder.AddWorkflow("gh-model-workflow", (sp, key) =>
         {
-            var agents = new List<IHostedAgentBuilder>() { reviewerAgentBuilder, frontDeskAgentBuilder }.Select(ab => sp.GetRequiredKeyedService<AIAgent>(ab.Name));
+            var agents = new[] { frontDeskAgentBuilder, reviewerAgentBuilder }
+                .Select(agentBuilder => sp.GetRequiredKeyedService<AIAgent>(agentBuilder.Name));
             return AgentWorkflowBuilder.BuildSequential(workflowName: key, agents: agents);
         }).AddAsAIAgent();
 
@@ -111,19 +99,26 @@ internal static class Program
         var app = builder.Build();
 
 
-        app.UseHttpsRedirection();
-
         app.MapOpenAIResponses();
         app.MapOpenAIConversations();
 
         if (builder.Environment.IsDevelopment())
         {
             app.MapDevUI();
+            Console.WriteLine("DevUI is available at: http://localhost:50518/devui");
         }
 
-        Console.WriteLine("DevUI is available at: http://localhost:50518/devui");
         Console.WriteLine("OpenAI Responses API is available at: http://localhost:50518/v1/responses");
         Console.WriteLine("Press Ctrl+C to stop the server.");
         app.Run();
+    }
+
+    private static string GetRequiredEnvironmentVariable(string name)
+    {
+        var value = Environment.GetEnvironmentVariable(name);
+        return !string.IsNullOrWhiteSpace(value)
+            ? value
+            : throw new InvalidOperationException(
+                $"{name} is not set. Add it to 09.Cases/GHModel.AI/.env or set it in your environment.");
     }
 }
