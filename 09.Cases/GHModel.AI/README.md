@@ -72,7 +72,7 @@ The project uses a dual-agent sequential workflow:
 
 ### Prerequisites
 
-- Python 3.10+ / .NET 8.0+
+- Python 3.10+ / .NET 10.0+
 - GitHub Models API access (or Azure OpenAI / OpenAI)
 - Docker (optional, for running Aspire Dashboard)
 
@@ -85,12 +85,15 @@ cd GHModel.AI
 
 ### 2. Configure Environment Variables
 
-Create a `.env` file in each example directory:
+Set these environment variables in your shell or in the `.env` location used by
+the example you are running. The .NET DevUI example loads
+`09.Cases/GHModel.AI/.env`:
 
 ```env
-GITHUB_ENDPOINT=https://models.inference.ai.azure.com
+GITHUB_ENDPOINT=https://models.github.ai/inference
+# Fine-grained PAT with "Models: read" permission
 GITHUB_TOKEN=your_github_token
-GITHUB_MODEL_ID=gpt-4o
+GITHUB_MODEL_ID=openai/gpt-4.1-mini
 ```
 
 ---
@@ -230,9 +233,12 @@ python main.py
 ```bash
 cd GHModel.dotNET.AI/GHModel.dotNET.AI.Workflow.DevUI
 dotnet run
-# DevUI: https://localhost:50516/devui
-# OpenAI API: https://localhost:50516/v1/responses
+# DevUI: http://localhost:50518/devui
+# OpenAI API: http://localhost:50518/v1/responses
 ```
+
+Select `gh-model-workflow` in DevUI to run the sequential FrontDesk and
+Concierge workflow.
 
 #### Code Snippets
 
@@ -244,9 +250,23 @@ serve(entities=[workflow], port=8090, auto_open=True, tracing_enabled=True)
 
 ```csharp
 // .NET — ASP.NET Core integration
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddDevUI();
+}
 builder.AddAIAgent("FrontDesk", FrontDeskAgentInstructions);
 builder.AddWorkflow("gh-model-workflow", ...);
-app.MapDevUI();
+
+builder.Services.AddOpenAIResponses();
+builder.Services.AddOpenAIConversations();
+
+app.MapOpenAIResponses();
+app.MapOpenAIConversations();
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapDevUI();
+}
 ```
 
 ---

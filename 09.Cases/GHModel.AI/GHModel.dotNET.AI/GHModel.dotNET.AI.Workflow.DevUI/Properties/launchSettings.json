@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Dev_UI_Applcaiton": {
+    "Dev_UI_Application": {
       "commandName": "Project",
       "launchUrl": "devui",
       "launchBrowser": true,
