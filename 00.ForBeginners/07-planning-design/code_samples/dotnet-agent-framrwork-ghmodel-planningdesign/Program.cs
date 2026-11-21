@@ -40,9 +40,9 @@ const string AGENT_INSTRUCTIONS = @"You are an planner agent.
 ChatClientAgentOptions agentOptions = new()
 {
 	Name = AGENT_NAME,
-	Description = AGENT_INSTRUCTIONS,
 	ChatOptions = new()
 	{
+		Instructions = AGENT_INSTRUCTIONS,
 		ResponseFormat = ChatResponseFormatJson.ForJsonSchema(
 			schema: AIJsonUtilities.CreateJsonSchema(typeof(TravelPlan)),
 			schemaName: "TravelPlan",
